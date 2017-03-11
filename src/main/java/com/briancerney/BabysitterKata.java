@@ -43,14 +43,14 @@ public class BabysitterKata {
 	public boolean isPastMidnight(int endTime) {
 		return endTime >= 1 && endTime <= 4;
 	}
-	
+
 	public boolean startTimeAndBedtimeAreSet() {
 		return startTime > 0 && bedtime > 0;
 	}
 
 	public boolean isValidEndTime(int endTime) {
-		return (this.isPastMidnight(endTime) && this.startTimeAndBedtimeAreSet()) || 
-				(endTime > startTime && this.startTimeAndBedtimeAreSet());
+		return (this.isPastMidnight(endTime) && this.startTimeAndBedtimeAreSet())
+				|| (endTime > startTime && this.startTimeAndBedtimeAreSet());
 	}
 
 	public void setEndTime(int endTime) {
@@ -66,16 +66,19 @@ public class BabysitterKata {
 	public int calculateBedtimeToMidnightInHours() {
 		return 12 - bedtime;
 	}
-	
+
 	public int calculateBedtimeToEndTimeInHours() {
-		return endTime - bedtime;
+		if (!this.isPastMidnight(endTime)) {
+			return endTime - bedtime;
+		}
+		return 0;
 	}
-	
+
 	public int getNumberOfHoursPastMidnight() {
 		// endTime value can double as past midnight hours
 		return endTime;
 	}
-	
+
 	public int calculateNightlyCharge() {
 		return 0;
 	}
