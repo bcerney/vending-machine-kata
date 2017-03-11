@@ -13,6 +13,7 @@ public class Main {
 		Scanner input = new Scanner(System.in);
 		BabysitterKata babysitter = new BabysitterKata();
 		
+		System.out.println();
 		System.out.println("The Tyke-Squaters Society Tyke-Squatting Scheduling System");
 		System.out.println();
 		
