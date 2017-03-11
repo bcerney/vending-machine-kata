@@ -83,5 +83,13 @@ public class BabysitterKataTest {
 		Assert.assertEquals(0, babysitter.getBedtime());;
 	}
 	
+	@Test
+	public void setBedtimeSuccessfullySetsBedtimeVariableIfPassed12AndStartTimeSetTo5() {
+		babysitter.setStartTime(5);
+		int testBedime = 12;
+		babysitter.setBedtime(testBedime);
+		Assert.assertEquals(12, babysitter.getBedtime());;
+	}
+	
 	
 }
