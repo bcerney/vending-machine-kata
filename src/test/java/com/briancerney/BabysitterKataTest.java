@@ -129,9 +129,22 @@ public class BabysitterKataTest {
 	}
 	
 	@Test
+	public void setEndTimeFailsToSetEndTimeVariableIfStartTimeIsNotSet() {
+		babysitter.setEndTime(5);
+		Assert.assertEquals(0, babysitter.getEndTime());;
+	}
+	
+	@Test
 	public void setEndTimeFailsToSetEndTimeVariableIfPassedInvalidEndTime() {
 		babysitter.setStartTime(6);
 		babysitter.setEndTime(5);
 		Assert.assertEquals(0, babysitter.getEndTime());;
+	}
+	
+	@Test
+	public void setEndTimeSuccessfullySetsEndTimeVariableIfPassed12AndStartTimeIs5() {
+		babysitter.setStartTime(5);
+		babysitter.setEndTime(12);
+		Assert.assertEquals(12, babysitter.getEndTime());;
 	}
 }
