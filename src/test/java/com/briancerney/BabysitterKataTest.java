@@ -105,5 +105,10 @@ public class BabysitterKataTest {
 		Assert.assertEquals(2, babysitter.calculateBedtimeToMidnightInHours());;
 	}
 	
+	@Test
+	public void isValidEndTimeReturnsFalseWhenPassed5() {
+		Assert.assertFalse(babysitter.isValidEndTime(5));
+	}
+	
 	
 }

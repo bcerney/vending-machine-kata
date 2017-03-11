@@ -35,6 +35,10 @@ public class BabysitterKata {
 		}
 	}
 	
+	public boolean isValidEndTime(int endTime) {
+		return false;
+	}
+	
 	public int calculateStartTimeToBedtimeInHours() {
 		return bedtime - startTime;
 	}
