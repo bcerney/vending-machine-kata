@@ -224,5 +224,13 @@ public class BabysitterKataTest {
 		Assert.assertEquals(148, babysitter.calculateNightlyCharge());
 	}
 	
+	@Test
+	public void calculateNightlyChargeReturns72IfStartTimeIs5BedtimeIs11EndTimeIs11() {
+		babysitter.setStartTime(5);
+		babysitter.setBedtime(11);
+		babysitter.setEndTime(11);
+		Assert.assertEquals(72, babysitter.calculateNightlyCharge());
+	}
+	
 	
 }

@@ -75,42 +75,28 @@ public class BabysitterKata {
 	}
 
 	public int getNumberOfHoursPastMidnight() {
-		// endTime value can double as past midnight hours
+		// endTime value can double as number of hours past midnight
 		if (this.isPastMidnight(endTime)) {
 			return endTime;
 		}
 		return 0;
 	}
 	
-//	public int startTimeToBedtimeCharge() {
-//		return calculateStartTimeToBedtimeInHours() * 12;
-//	}
-//	
-//	public int bedtimeToMidnightCharge() {
-//		return calculateBedtimeToEndTimeInHours() * 8;
-//	}
-//	
-//	public int midnightToEndTimeCharge() {
-//		return getNumberOfHoursPastMidnight() * 16;
-//	}
+	public int startTimeToBedtimeCharge() {
+		return calculateStartTimeToBedtimeInHours() * 12;
+	}
+	
+	public int bedtimeToEndTimeCharge() {
+		if (this.isPastMidnight(endTime)) {
+			return (calculateBedtimeToMidnightInHours() * 8) +
+					(getNumberOfHoursPastMidnight() * 16);
+		} else {
+			return calculateBedtimeToEndTimeInHours() * 8;
+		}
+	}
 
 	public int calculateNightlyCharge() {
-		int startTimeToBedtimeHourlyRate = 12,
-			bedtimeToMidnightHourlyRate = 8,
-			midnightToEndTimeHourlyRate = 16,
-			nightlyCharge = 0;
-		
-		if (this.isPastMidnight(endTime)) {
-			nightlyCharge += (calculateBedtimeToMidnightInHours() * bedtimeToMidnightHourlyRate) +
-							(getNumberOfHoursPastMidnight() * midnightToEndTimeHourlyRate);
-		} else {
-			nightlyCharge += calculateBedtimeToEndTimeInHours() * bedtimeToMidnightHourlyRate;
-		}
-		
-		nightlyCharge += (calculateStartTimeToBedtimeInHours() * startTimeToBedtimeHourlyRate);
-						
-
-		return nightlyCharge;
+		return startTimeToBedtimeCharge() + bedtimeToEndTimeCharge();
 	}
 
 }
