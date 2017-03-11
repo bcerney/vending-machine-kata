@@ -34,5 +34,9 @@ public class BabysitterKata {
 			this.bedtime = bedtime;
 		}
 	}
+	
+	public int calculateStartTimeToBedtimeInHours() {
+		return bedtime - startTime;
+	}
 
 }
