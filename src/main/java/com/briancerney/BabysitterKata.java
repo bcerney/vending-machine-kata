@@ -30,7 +30,7 @@ public class BabysitterKata {
 	}
 
 	public void setBedtime(int bedtime) {
-		if (isValidBedtime(bedtime)) {
+		if (startTime > 0 && isValidBedtime(bedtime)) {
 			this.bedtime = bedtime;
 		}
 	}
