@@ -16,7 +16,6 @@ public class BabysitterKataTest {
 	
 	@Test
 	public void isValidStartTimeReturnsFalseWhenPassed4() {
-		
 		Assert.assertFalse(babysitter.isValidStartTime(4));
 	}
 	
@@ -51,5 +50,10 @@ public class BabysitterKataTest {
 		Assert.assertEquals(0, babysitter.getStartTime());;
 	}
 	
+	@Test
+	public void isValidBedtimeReturnsFalseWhenPassedIntSmallerThanStartTime() {
+		babysitter.setStartTime(6);
+		Assert.assertFalse(babysitter.isValidBedtime(5));
+	}
 
 }
