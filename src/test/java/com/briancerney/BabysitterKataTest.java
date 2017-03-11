@@ -110,5 +110,11 @@ public class BabysitterKataTest {
 		Assert.assertFalse(babysitter.isValidEndTime(5));
 	}
 	
+	@Test
+	public void isValidEndTimeReturnsFalseWhenPassed6AndStartTimeIs7() {
+		babysitter.setStartTime(7);
+		Assert.assertFalse(babysitter.isValidEndTime(6));
+	}
+	
 	
 }
