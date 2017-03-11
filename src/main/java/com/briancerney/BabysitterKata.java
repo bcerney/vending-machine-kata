@@ -21,7 +21,7 @@ public class BabysitterKata {
 	}
 	
 	public boolean isValidBedtime(int bedtime) {
-		return bedtime >= startTime && bedtime < 12;
+		return bedtime >= startTime && bedtime < 13;
 	}
 
 }

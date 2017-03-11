@@ -57,9 +57,9 @@ public class BabysitterKataTest {
 	}
 	
 	@Test
-	public void isValidBedtimeReturnsFalseWhenPassedIntGreaterThan11() {
+	public void isValidBedtimeReturnsFalseWhenPassedIntGreaterThan12() {
 		babysitter.setStartTime(6);
-		Assert.assertFalse(babysitter.isValidBedtime(12));
+		Assert.assertFalse(babysitter.isValidBedtime(13));
 	}
 	
 	
