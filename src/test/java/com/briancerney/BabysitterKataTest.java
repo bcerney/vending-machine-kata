@@ -176,6 +176,22 @@ public class BabysitterKataTest {
 		Assert.assertEquals(0, babysitter.calculateBedtimeToEndTimeInHours());
 	}
 	
+	@Test
+	public void getNumberOfHoursPastMidnightReturns4fStartTimeIs5BedtimeIs9EndTimeIs4() {
+		babysitter.setStartTime(5);
+		babysitter.setBedtime(9);
+		babysitter.setEndTime(4);
+		Assert.assertEquals(4, babysitter.getNumberOfHoursPastMidnight());
+	}
+	
+	@Test
+	public void getNumberOfHoursPastMidnightReturns0fStartTimeIs5BedtimeIs9EndTimeIs12() {
+		babysitter.setStartTime(5);
+		babysitter.setBedtime(9);
+		babysitter.setEndTime(12);
+		Assert.assertEquals(0, babysitter.getNumberOfHoursPastMidnight());
+	}
+	
 //	@Test
 	public void calculateNightlyChargeReturns20IfStartTimeIs5BedtimeIs6EndTimeIs7() {
 		babysitter.setStartTime(5);

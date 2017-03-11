@@ -76,7 +76,10 @@ public class BabysitterKata {
 
 	public int getNumberOfHoursPastMidnight() {
 		// endTime value can double as past midnight hours
-		return endTime;
+		if (this.isPastMidnight(endTime)) {
+			return endTime;
+		}
+		return 0;
 	}
 
 	public int calculateNightlyCharge() {
