@@ -31,17 +31,17 @@ public class BabysitterKataTest {
 	}
 	
 	@Test
-	public void setStartTimeSuccessfullySetsStartTimeVariable() {
-		int testStartTime = 5;
-		babysitter.setStartTime(testStartTime);
-		Assert.assertEquals(5, babysitter.getStartTime());;
-	}
-	
-	@Test
-	public void setStartTimeFailsToSetStartTimeVariableIfPassedInvalidStartTime() {
+	public void setStartTimeFailsToSetStartTimeVariableIfPassed4() {
 		int testStartTime = 4;
 		babysitter.setStartTime(testStartTime);
 		Assert.assertEquals(0, babysitter.getStartTime());;
+	}
+	
+	@Test
+	public void setStartTimeSuccessfullySetsStartTimeVariableIfPassed5() {
+		int testStartTime = 5;
+		babysitter.setStartTime(testStartTime);
+		Assert.assertEquals(5, babysitter.getStartTime());;
 	}
 
 }
