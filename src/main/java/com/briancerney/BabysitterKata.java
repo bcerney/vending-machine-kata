@@ -35,8 +35,13 @@ public class BabysitterKata {
 		}
 	}
 	
+	public boolean isPastMidnight(int endTime) {
+		return endTime >= 1 && endTime <= 4;
+	}
+	
 	public boolean isValidEndTime(int endTime) {
-		return endTime > startTime && startTime > 0;
+		return (this.isPastMidnight(endTime)) ||
+				(endTime > startTime && startTime > 0);
 	}
 	
 	public int calculateStartTimeToBedtimeInHours() {
