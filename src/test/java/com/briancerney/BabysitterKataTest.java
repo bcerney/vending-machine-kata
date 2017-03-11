@@ -33,21 +33,21 @@ public class BabysitterKataTest {
 	public void setStartTimeFailsToSetStartTimeVariableIfPassed4() {
 		int testStartTime = 4;
 		babysitter.setStartTime(testStartTime);
-		Assert.assertEquals(0, babysitter.getStartTime());;
+		Assert.assertEquals(0, babysitter.getStartTime());
 	}
 	
 	@Test
 	public void setStartTimeSuccessfullySetsStartTimeVariableIfPassed5() {
 		int testStartTime = 5;
 		babysitter.setStartTime(testStartTime);
-		Assert.assertEquals(5, babysitter.getStartTime());;
+		Assert.assertEquals(5, babysitter.getStartTime());
 	}
 	
 	@Test
 	public void setStartTimeFailsToSetStartTimeVariableIfPassed12() {
 		int testStartTime = 12;
 		babysitter.setStartTime(testStartTime);
-		Assert.assertEquals(0, babysitter.getStartTime());;
+		Assert.assertEquals(0, babysitter.getStartTime());
 	}
 	
 	@Test
@@ -72,7 +72,7 @@ public class BabysitterKataTest {
 	public void setBedtimeFailsToSetBedtimeVariableIfStartTimeNotSet() {
 		int testBedime = 8;
 		babysitter.setBedtime(testBedime);
-		Assert.assertEquals(0, babysitter.getBedtime());;
+		Assert.assertEquals(0, babysitter.getBedtime());
 	}
 	
 	@Test
@@ -80,7 +80,7 @@ public class BabysitterKataTest {
 		babysitter.setStartTime(6);
 		int testBedime = 5;
 		babysitter.setBedtime(testBedime);
-		Assert.assertEquals(0, babysitter.getBedtime());;
+		Assert.assertEquals(0, babysitter.getBedtime());
 	}
 	
 	@Test
@@ -88,21 +88,21 @@ public class BabysitterKataTest {
 		babysitter.setStartTime(5);
 		int testBedime = 12;
 		babysitter.setBedtime(testBedime);
-		Assert.assertEquals(12, babysitter.getBedtime());;
+		Assert.assertEquals(12, babysitter.getBedtime());
 	}
 	
 	@Test
 	public void calculateStartTimeToBedtimeInHoursReturns4WhenStartTimeIs6AndBedtimeIs10() {
 		babysitter.setStartTime(6);
 		babysitter.setBedtime(10);
-		Assert.assertEquals(4, babysitter.calculateStartTimeToBedtimeInHours());;
+		Assert.assertEquals(4, babysitter.calculateStartTimeToBedtimeInHours());
 	}
 	
 	@Test
 	public void calculateBedtimeToMidnightInHoursReturns2WhenStartTimeIs6AndBedtimeIs10() {
 		babysitter.setStartTime(6);
 		babysitter.setBedtime(10);
-		Assert.assertEquals(2, babysitter.calculateBedtimeToMidnightInHours());;
+		Assert.assertEquals(2, babysitter.calculateBedtimeToMidnightInHours());
 	}
 	
 	@Test
@@ -113,45 +113,63 @@ public class BabysitterKataTest {
 	@Test
 	public void isValidEndTimeReturnsFalseWhenPassed6AndStartTimeIs7() {
 		babysitter.setStartTime(7);
+		babysitter.setBedtime(8);
 		Assert.assertFalse(babysitter.isValidEndTime(6));
 	}
 	
 	@Test
 	public void isValidEndTimeReturnsTrueWhenPassed8AndStartTimeIs5() {
 		babysitter.setStartTime(5);
+		babysitter.setBedtime(7);
 		Assert.assertTrue(babysitter.isValidEndTime(8));
 	}
 	
 	@Test
 	public void isValidEndTimeReturnsTrueWhenPassed4AndStartTimeIs5() {
 		babysitter.setStartTime(5);
+		babysitter.setBedtime(10);
 		Assert.assertTrue(babysitter.isValidEndTime(4));
 	}
 	
 	@Test
 	public void setEndTimeFailsToSetEndTimeVariableIfStartTimeIsNotSet() {
 		babysitter.setEndTime(5);
-		Assert.assertEquals(0, babysitter.getEndTime());;
+		Assert.assertEquals(0, babysitter.getEndTime());
 	}
 	
 	@Test
 	public void setEndTimeFailsToSetEndTimeVariableIfPassedInvalidEndTime() {
 		babysitter.setStartTime(6);
 		babysitter.setEndTime(5);
-		Assert.assertEquals(0, babysitter.getEndTime());;
+		Assert.assertEquals(0, babysitter.getEndTime());
 	}
 	
 	@Test
 	public void setEndTimeSuccessfullySetsEndTimeVariableIfPassed12AndStartTimeIs5() {
 		babysitter.setStartTime(5);
+		babysitter.setBedtime(10);
 		babysitter.setEndTime(12);
-		Assert.assertEquals(12, babysitter.getEndTime());;
+		Assert.assertEquals(12, babysitter.getEndTime());
 	}
 	
 	@Test
 	public void setEndTimeSuccessfullySetsEndTimeVariableIfPassed4AndStartTimeIs5() {
 		babysitter.setStartTime(5);
+		babysitter.setBedtime(10);
 		babysitter.setEndTime(4);
-		Assert.assertEquals(4, babysitter.getEndTime());;
+		Assert.assertEquals(4, babysitter.getEndTime());
+	}
+	
+	@Test
+	public void calculateEndTimeToBedtimeInHoursReturns3fStartTimeIs5BedtimeIs9EndTimeIs12() {
+		
+	}
+	
+	@Test
+	public void calculateNightlyChargeReturns20IfStartTimeIs5BedtimeIs6EndTimeIs7() {
+		babysitter.setStartTime(5);
+		babysitter.setBedtime(6);
+		babysitter.setEndTime(7);
+		Assert.assertEquals(20, babysitter.calculateNightlyCharge());
 	}
 }
