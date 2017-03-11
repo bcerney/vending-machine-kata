@@ -3,6 +3,7 @@ package com.briancerney;
 public class BabysitterKata {
 	private int startTime;
 	private int bedtime;
+	private int endTime;
 
 	public BabysitterKata() {
 	}
@@ -34,20 +35,30 @@ public class BabysitterKata {
 			this.bedtime = bedtime;
 		}
 	}
-	
+
+	public int getEndTime() {
+		return endTime;
+	}
+
 	public boolean isPastMidnight(int endTime) {
 		return endTime >= 1 && endTime <= 4;
 	}
-	
+
 	public boolean isValidEndTime(int endTime) {
-		return (this.isPastMidnight(endTime)) ||
+		return (this.isPastMidnight(endTime) && startTime > 0) || 
 				(endTime > startTime && startTime > 0);
 	}
-	
+
+	public void setEndTime(int endTime) {
+		if (this.isValidEndTime(endTime)) {
+			this.endTime = endTime;
+		}
+	}
+
 	public int calculateStartTimeToBedtimeInHours() {
 		return bedtime - startTime;
 	}
-	
+
 	public int calculateBedtimeToMidnightInHours() {
 		return 12 - bedtime;
 	}
