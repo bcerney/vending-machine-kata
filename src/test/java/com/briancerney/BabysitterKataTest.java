@@ -12,5 +12,11 @@ public class BabysitterKataTest {
 		BabysitterKata babysitter = new BabysitterKata();
 		Assert.assertFalse(babysitter.isValidStartTime(4));
 	}
+	
+	@Test
+	public void isValidStartTimeReturnsTrueWhenPassed5() {
+		BabysitterKata babysitter = new BabysitterKata();
+		Assert.assertTrue(babysitter.isValidStartTime(5));
+	}
 
 }
