@@ -81,6 +81,18 @@ public class BabysitterKata {
 		}
 		return 0;
 	}
+	
+//	public int startTimeToBedtimeCharge() {
+//		return calculateStartTimeToBedtimeInHours() * 12;
+//	}
+//	
+//	public int bedtimeToMidnightCharge() {
+//		return calculateBedtimeToEndTimeInHours() * 8;
+//	}
+//	
+//	public int midnightToEndTimeCharge() {
+//		return getNumberOfHoursPastMidnight() * 16;
+//	}
 
 	public int calculateNightlyCharge() {
 		int startTimeToBedtimeHourlyRate = 12,
