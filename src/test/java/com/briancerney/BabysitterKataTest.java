@@ -1,22 +1,33 @@
 package com.briancerney;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 
 
 public class BabysitterKataTest {
+	BabysitterKata babysitter;
+	
+	@Before
+	public void setUp() {
+		babysitter = new BabysitterKata();
+	}
 	
 	@Test
 	public void isValidStartTimeReturnsFalseWhenPassed4() {
-		BabysitterKata babysitter = new BabysitterKata();
+		
 		Assert.assertFalse(babysitter.isValidStartTime(4));
 	}
 	
 	@Test
 	public void isValidStartTimeReturnsTrueWhenPassed5() {
-		BabysitterKata babysitter = new BabysitterKata();
 		Assert.assertTrue(babysitter.isValidStartTime(5));
+	}
+	
+	@Test
+	public void isValidStartTimeReturnsFalseWhenPassed12() {
+		Assert.assertFalse(babysitter.isValidStartTime(12));
 	}
 
 }

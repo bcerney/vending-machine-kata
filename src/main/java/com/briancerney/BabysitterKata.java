@@ -7,7 +7,7 @@ public class BabysitterKata {
 	}
 	
 	public boolean isValidStartTime(int startHour) {
-		return startHour >= 5;
+		return startHour >= 5 && startHour < 12;
 	}
 
 }
