@@ -98,5 +98,12 @@ public class BabysitterKataTest {
 		Assert.assertEquals(4, babysitter.calculateStartTimeToBedtimeInHours());;
 	}
 	
+	@Test
+	public void calculateBedtimeToMidnightInHoursReturns2WhenStartTimeIs6AndBedtimeIs10() {
+		babysitter.setStartTime(6);
+		babysitter.setBedtime(10);
+		Assert.assertEquals(2, babysitter.calculateBedtimeToMidnightInHours());;
+	}
+	
 	
 }

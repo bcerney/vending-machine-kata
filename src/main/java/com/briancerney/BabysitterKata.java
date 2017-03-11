@@ -38,5 +38,9 @@ public class BabysitterKata {
 	public int calculateStartTimeToBedtimeInHours() {
 		return bedtime - startTime;
 	}
+	
+	public int calculateBedtimeToMidnightInHours() {
+		return 12 - bedtime;
+	}
 
 }
