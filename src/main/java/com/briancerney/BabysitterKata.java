@@ -67,6 +67,15 @@ public class BabysitterKata {
 		return 12 - bedtime;
 	}
 	
+	public int calculateBedtimeToEndTimeInHours() {
+		return endTime - bedtime;
+	}
+	
+	public int getNumberOfHoursPastMidnight() {
+		// endTime value can double as past midnight hours
+		return endTime;
+	}
+	
 	public int calculateNightlyCharge() {
 		return 0;
 	}
