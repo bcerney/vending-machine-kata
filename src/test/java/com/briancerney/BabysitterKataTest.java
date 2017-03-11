@@ -68,5 +68,13 @@ public class BabysitterKataTest {
 		Assert.assertTrue(babysitter.isValidBedtime(12));
 	}
 	
+	@Test
+	public void setBedtimeFailsToSetBedtimeVariableIfPassed5AndStartTimeSetTo6() {
+		babysitter.setStartTime(6);
+		int testBedime = 5;
+		babysitter.setBedtime(testBedime);
+		Assert.assertEquals(0, babysitter.getBedtime());;
+	}
+	
 	
 }
