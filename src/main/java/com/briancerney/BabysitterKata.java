@@ -36,7 +36,7 @@ public class BabysitterKata {
 	}
 	
 	public boolean isValidEndTime(int endTime) {
-		return false;
+		return endTime > startTime && startTime > 0;
 	}
 	
 	public int calculateStartTimeToBedtimeInHours() {
