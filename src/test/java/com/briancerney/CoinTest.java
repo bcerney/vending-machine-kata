@@ -23,5 +23,13 @@ public class CoinTest {
 		Assert.assertEquals(6, testCoin.getWeightInGrams());
 		Assert.assertEquals(24, testCoin.getDiameterInMm());
 	}
+	
+	@Test
+	public void coinQUARTERWeightInGramsEquals6DiameterInMmEquals24() {
+		testCoin = Coin.QUARTER;
+		
+		Assert.assertEquals(6, testCoin.getWeightInGrams());
+		Assert.assertEquals(24, testCoin.getDiameterInMm());
+	}
 
 }

@@ -1,6 +1,8 @@
 package com.briancerney;
 
 public class Coin {
+	public static final Coin QUARTER = new Coin(6,24);
+	
 	private int weightInGrams;
 	private int diameterInMm;
 	
