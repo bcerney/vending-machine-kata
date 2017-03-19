@@ -28,11 +28,5 @@ public class CoinCollectorTest {
 		
 		Assert.assertEquals(3, testCollector.getNumberOfCoins());
 	}
-	
-	@Test
-	public void givenAddCoinPassedPENNYGetNumberOfCoinsReturns0() {
-		testCollector.addCoin(Coin.PENNY);
-		
-		Assert.assertEquals(0, testCollector.getNumberOfCoins());
-	}
+
 }

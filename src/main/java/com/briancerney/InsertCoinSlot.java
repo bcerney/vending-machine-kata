@@ -2,11 +2,11 @@ package com.briancerney;
 
 import java.util.List;
 
-public class VendingMachineCoinCollections {
+public class InsertCoinSlot {
 	private CoinCollector currentBalanceCoins;
 	private CoinReturn returnedCoins;
 	
-	public VendingMachineCoinCollections() {
+	public InsertCoinSlot() {
 		this.currentBalanceCoins = new CoinCollector();
 		this.returnedCoins = new CoinReturn();
 	}
