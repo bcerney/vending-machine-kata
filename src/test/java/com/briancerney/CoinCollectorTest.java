@@ -15,9 +15,17 @@ public class CoinCollectorTest {
 	
 	@Test
 	public void givenAddCoinPassedQUARTERGetNumberOfCoinsReturnss1() {
-		Coin testCoin = Coin.QUARTER;
-		testCollector.addCoin(testCoin);
+		testCollector.addCoin(Coin.QUARTER);
 		
 		Assert.assertEquals(1, testCollector.getNumberOfCoins());
+	}
+	
+	@Test
+	public void givenAddCoinQUARTERAndDIMEAndNICKELGetNumberOfCoinsReturnss3() {
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.addCoin(Coin.DIME);
+		testCollector.addCoin(Coin.NICKEL);
+		
+		Assert.assertEquals(3, testCollector.getNumberOfCoins());
 	}
 }
