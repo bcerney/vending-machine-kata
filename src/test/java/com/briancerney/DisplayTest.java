@@ -18,5 +18,13 @@ public class DisplayTest {
 		
 		Assert.assertEquals("INSERT COIN", testDisplay.getCurrentDisplay(testCollector));
 	}
+	
+	@Test
+	public void givenGetCurrentDisplayPassedCoinCollectorWith1QuarterReturnsCorrectBalanceAsString() {
+		CoinCollector testCollector = new CoinCollector();
+		testCollector.addCoin(Coin.QUARTER);
+		
+		Assert.assertEquals("Current Balance: $0.25", testDisplay.getCurrentDisplay(testCollector));
+	}
 
 }
