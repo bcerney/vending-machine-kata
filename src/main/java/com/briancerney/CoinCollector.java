@@ -16,10 +16,12 @@ public class CoinCollector {
 				coin.equals(Coin.NICKEL);
 	}
 
-	public void addCoin(Coin coinToAdd) {
+	public boolean addCoin(Coin coinToAdd) {
 		if (isValidCoin(coinToAdd)) {
 			currentCoins.add(coinToAdd);
+			return true;
 		}
+		return false;
 	}
 
 	public int getNumberOfCoins() {
