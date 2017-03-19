@@ -2,6 +2,9 @@ package com.briancerney;
 
 public class Coin {
 	public static final Coin QUARTER = new Coin(6,24);
+	public static final Coin DIME = new Coin(2,18);
+	public static final Coin NICKEL = new Coin(5,21);
+	public static final Coin PENNY = new Coin(3,19);
 	
 	private int weightInGrams;
 	private int diameterInMm;
