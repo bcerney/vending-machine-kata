@@ -13,17 +13,9 @@ public class CoinCollector implements CoinCollection {
 	public List<Coin> getCoinsAsList() {
 		return currentCoins;
 	}
-	
-	public boolean isValidCoin(Coin coin) {
-		return coin.equals(Coin.QUARTER) ||
-				coin.equals(Coin.DIME) ||
-				coin.equals(Coin.NICKEL);
-	}
 
 	public void addCoin(Coin coinToAdd) {
-		if (isValidCoin(coinToAdd)) {
-			currentCoins.add(coinToAdd);
-		}
+		currentCoins.add(coinToAdd);
 	}
 
 	public int getNumberOfCoins() {
