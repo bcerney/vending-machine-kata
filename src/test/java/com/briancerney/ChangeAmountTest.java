@@ -44,8 +44,9 @@ public class ChangeAmountTest {
 	
 	@Test
 	public void givenChangeAmountOfQUARTERPlusCoinAmountOfDIMEReturnsChangeAmountOf35Cents() {
-		Coin quarter = Coin.QUARTER;
-		ChangeAmount quarterPlusDime = quarter.plus(Coin.DIME);
+		ChangeAmount quarterAmount = ChangeAmount.returnChangeAmountOfCoinValue(Coin.QUARTER);
+		ChangeAmount dimeAmount = ChangeAmount.returnChangeAmountOfCoinValue(Coin.DIME);
+		ChangeAmount quarterPlusDime = quarterAmount.plus(dimeAmount);
 		
 		Assert.assertEquals(35, quarterPlusDime.getTotalAmountInCents());
 	}

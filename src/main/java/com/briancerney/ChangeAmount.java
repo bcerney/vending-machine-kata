@@ -17,6 +17,10 @@ public class ChangeAmount {
 		this.totalAmountInCents = totalAmountInCents;
 	}
 	
+	public ChangeAmount plus(ChangeAmount amountToAdd) {
+		return new ChangeAmount(this.getTotalAmountInCents() + amountToAdd.getTotalAmountInCents());
+	}
+	
 	public static ChangeAmount returnChangeAmountOfCoinValue(Coin coin) {
 		if (coin.equals(Coin.QUARTER)) {
 			return new ChangeAmount(25);
