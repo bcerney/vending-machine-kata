@@ -2,6 +2,11 @@ package com.briancerney;
 
 public class ChangeAmount {
 	public static final ChangeAmount ZERO_CENTS = new ChangeAmount(0);
+	public static final ChangeAmount QUARTER = new ChangeAmount(25);
+	public static final ChangeAmount DIME = new ChangeAmount(10);
+	public static final ChangeAmount NICKEL = new ChangeAmount(5);
+	public static final ChangeAmount PENNY = new ChangeAmount(1);
+
 		
 	private int totalAmountInCents;
 
@@ -23,13 +28,13 @@ public class ChangeAmount {
 	
 	public static ChangeAmount returnChangeAmountOfCoinValue(Coin coin) {
 		if (coin.equals(Coin.QUARTER)) {
-			return new ChangeAmount(25);
+			return ChangeAmount.QUARTER;
 		} else if (coin.equals(Coin.DIME)) {
-			return new ChangeAmount(10);
+			return ChangeAmount.DIME;
 		} else if (coin.equals(Coin.NICKEL)) {
-			return new ChangeAmount(5);
+			return ChangeAmount.NICKEL;
 		} 
-		return new ChangeAmount(0);
+		return ChangeAmount.ZERO_CENTS;
 	}
 	
 	
