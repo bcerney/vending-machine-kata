@@ -59,5 +59,11 @@ public class ChangeAmountTest {
 		
 		Assert.assertEquals(15, nickelPlusDime.getTotalAmountInCents());
 	}
+	
+	@Test
+	public void givenChangeAmount50CentsToStringReturnsCorrectly() {
+		testAmount = new ChangeAmount(50);
+		Assert.assertEquals("$0.50", testAmount.toString());
+	}
 
 }
