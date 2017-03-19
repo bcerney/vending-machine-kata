@@ -20,8 +20,11 @@ public class ChangeAmount {
 	public static ChangeAmount returnChangeAmountOfCoinValue(Coin coin) {
 		if (coin.equals(Coin.QUARTER)) {
 			return new ChangeAmount(25);
-		}
-		
+		} else if (coin.equals(Coin.DIME)) {
+			return new ChangeAmount(10);
+		} else if (coin.equals(Coin.NICKEL)) {
+			return new ChangeAmount(5);
+		} 
 		return new ChangeAmount(0);
 	}
 	

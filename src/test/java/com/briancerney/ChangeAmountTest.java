@@ -30,9 +30,24 @@ public class ChangeAmountTest {
 	
 	@Test
 	public void givenReturnChangeAmountOfCoinValuePassedDIMEReturnsChangeAmount10Cents() {
-		Coin testCoin = Coin.QUARTER;
+		Coin testCoin = Coin.DIME;
 		
-		Assert.assertEquals(25, ChangeAmount.returnChangeAmountOfCoinValue(testCoin).getTotalAmountInCents());
+		Assert.assertEquals(10, ChangeAmount.returnChangeAmountOfCoinValue(testCoin).getTotalAmountInCents());
+	}
+	
+	@Test
+	public void givenReturnChangeAmountOfCoinValuePassedNICKELReturnsChangeAmount5Cents() {
+		Coin testCoin = Coin.NICKEL;
+		
+		Assert.assertEquals(5, ChangeAmount.returnChangeAmountOfCoinValue(testCoin).getTotalAmountInCents());
+	}
+	
+	@Test
+	public void givenChangeAmountOfQUARTERPlusCoinAmountOfDIMEReturnsChangeAmountOf35Cents() {
+		Coin quarter = Coin.QUARTER;
+		ChangeAmount quarterPlusDime = quarter.plus(Coin.DIME);
+		
+		Assert.assertEquals(35, quarterPlusDime.getTotalAmountInCents());
 	}
 
 }
