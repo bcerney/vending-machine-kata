@@ -9,4 +9,12 @@ public class CoinCollector {
 	public CoinCollector() {
 		this.currentCoins = new ArrayList<Coin>();
 	}
+	
+	public void addCoin(Coin coinToAdd) {
+		currentCoins.add(coinToAdd);
+	}
+	
+	public int getNumberOfCoins() {
+		return currentCoins.size();
+	}
 }
