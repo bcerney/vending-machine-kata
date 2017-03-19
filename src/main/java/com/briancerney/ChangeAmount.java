@@ -17,6 +17,14 @@ public class ChangeAmount {
 	public int getTotalAmountInCents() {
 		return totalAmountInCents;
 	}
+	
+	public int getDollars() {
+		return totalAmountInCents / 100;
+	}
+	
+	public int getCents() {
+		return (int) (totalAmountInCents % 100);
+	}
 
 	public void setTotalAmountInCents(int totalAmountInCents) {
 		this.totalAmountInCents = totalAmountInCents;
@@ -37,7 +45,10 @@ public class ChangeAmount {
 		return ChangeAmount.ZERO_CENTS;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "$"+getDollars()+"."+String.format("%02d", getCents());
+	}
 	
 
 }
