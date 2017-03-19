@@ -7,7 +7,7 @@ public class BalanceCalculator {
 	}
 	
 	public ChangeAmount calculateBalance(CoinCollector currentCoins) {
-		ChangeAmount startingAmount = ChangeAmount.ZERO_CHANGE;
+		ChangeAmount startingAmount = ChangeAmount.ZERO_CENTS;
 		
 		for (Coin coin : currentCoins.getCurrentCoins()) {
 			

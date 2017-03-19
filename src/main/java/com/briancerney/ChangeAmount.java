@@ -17,7 +17,13 @@ public class ChangeAmount {
 		this.totalAmountInCents = totalAmountInCents;
 	}
 	
-	
+	public static ChangeAmount returnChangeAmountOfCoinValue(Coin coin) {
+		if (coin.equals(Coin.QUARTER)) {
+			return new ChangeAmount(25);
+		}
+		
+		return new ChangeAmount(0);
+	}
 	
 	
 	
