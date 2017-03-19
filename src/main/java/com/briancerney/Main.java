@@ -2,7 +2,9 @@ package com.briancerney;
 
 public class Main {
 	public static void main(String[] args) {
-		System.out.println("Test");
+		VendingMachineCLI cli = new VendingMachineCLI();
+		
+		cli.start();
 	}
 
 }

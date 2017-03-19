@@ -3,12 +3,36 @@ package com.briancerney;
 import java.util.List;
 
 public class InsertCoinSlot {
-	private CoinCollector currentBalanceCoins;
-	private CoinReturn returnedCoins;
+	private CoinCollector coinCollector;
+	private CoinReturn coinReturn;
 	
 	public InsertCoinSlot() {
-		this.currentBalanceCoins = new CoinCollector();
-		this.returnedCoins = new CoinReturn();
+		this.coinCollector = new CoinCollector();
+		this.coinReturn = new CoinReturn();
+	}
+
+	public CoinCollector getCoinCollector() {
+		return coinCollector;
+	}
+
+	public CoinReturn getCoinReturn() {
+		return coinReturn;
+	}
+
+	public List<Coin> getCurrentBalanceCoins() {
+		return coinCollector.getCoinsAsList();
+	}
+	
+	public List<Coin> getReturnedCoins() {
+		return coinReturn.getCoinsAsList();
+	}
+	
+	public int getNumberOfCurrentBalanceCoins() {
+		return coinCollector.getNumberOfCoins();
+	}
+	
+	public int getNumberOfReturnedCoins() {
+		return coinReturn.getNumberOfCoins();
 	}
 	
 	private boolean isValidCoin(Coin coin) {
@@ -19,26 +43,12 @@ public class InsertCoinSlot {
 	
 	public void insertCoin(Coin coinToAdd) {
 		if (isValidCoin(coinToAdd)) {
-			currentBalanceCoins.addCoin(coinToAdd);
+			coinCollector.addCoin(coinToAdd);
 		} else {
-			returnedCoins.addCoin(coinToAdd);
+			coinReturn.addCoin(coinToAdd);
 		}
 	}
 	
-	public List<Coin> getCurrentBalanceCoins() {
-		return currentBalanceCoins.getCoinsAsList();
-	}
 	
-	public List<Coin> getReturnedCoins() {
-		return returnedCoins.getCoinsAsList();
-	}
-	
-	public int getNumberOfCurrentBalanceCoins() {
-		return currentBalanceCoins.getNumberOfCoins();
-	}
-	
-	public int getNumberOfReturnedCoins() {
-		return returnedCoins.getNumberOfCoins();
-	}
 
 }
