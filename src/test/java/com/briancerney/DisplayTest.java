@@ -26,5 +26,33 @@ public class DisplayTest {
 		
 		Assert.assertEquals("Current Balance: $0.25", testDisplay.getCurrentDisplay(testCollector));
 	}
+	
+	@Test
+	public void givenGetCurrentDisplayPassedCoinCollectorWith2Quarters2Dimes2NickelsReturnsCorrectBalanceAsString() {
+		CoinCollector testCollector = new CoinCollector();
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.addCoin(Coin.DIME);
+		testCollector.addCoin(Coin.DIME);
+		testCollector.addCoin(Coin.NICKEL);
+		testCollector.addCoin(Coin.NICKEL);
+		
+		Assert.assertEquals("Current Balance: $0.80", testDisplay.getCurrentDisplay(testCollector));
+	}
+	
+	@Test
+	public void givenGetCurrentDisplayPassedCoinCollectorWith4Quarters2Dimes2NickelsReturnsCorrectBalanceAsString() {
+		CoinCollector testCollector = new CoinCollector();
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.addCoin(Coin.DIME);
+		testCollector.addCoin(Coin.DIME);
+		testCollector.addCoin(Coin.NICKEL);
+		testCollector.addCoin(Coin.NICKEL);
+		
+		Assert.assertEquals("Current Balance: $1.30", testDisplay.getCurrentDisplay(testCollector));
+	}
 
 }
