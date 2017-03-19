@@ -71,5 +71,11 @@ public class ChangeAmountTest {
 		testAmount = new ChangeAmount(150);
 		Assert.assertEquals("$1.50", testAmount.toString());
 	}
+	
+	@Test
+	public void givenChangeAmount1500CentsToStringReturnsCorrectly() {
+		testAmount = new ChangeAmount(1500);
+		Assert.assertEquals("$15.00", testAmount.toString());
+	}
 
 }
