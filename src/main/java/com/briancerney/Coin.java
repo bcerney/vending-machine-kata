@@ -5,7 +5,12 @@ public class Coin {
 	private int diameterInMm;
 	
 	public Coin() {
-
+		
+	}
+	
+	public Coin(int weightInGrams, int diameterInMm) {
+		this.weightInGrams = weightInGrams;
+		this.diameterInMm = diameterInMm;
 	}
 
 	public int getWeightInGrams() {

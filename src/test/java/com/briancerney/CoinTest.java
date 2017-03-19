@@ -15,5 +15,13 @@ public class CoinTest {
 		Assert.assertEquals(6, testCoin.getWeightInGrams());
 		Assert.assertEquals(24, testCoin.getDiameterInMm());
 	}
+	
+	@Test
+	public void givenCoinPassed6And24InConstructorsCoinGettersReturnCorrectValues() {
+		testCoin = new Coin(6,24);
+
+		Assert.assertEquals(6, testCoin.getWeightInGrams());
+		Assert.assertEquals(24, testCoin.getDiameterInMm());
+	}
 
 }
