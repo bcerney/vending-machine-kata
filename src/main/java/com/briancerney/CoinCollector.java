@@ -10,6 +10,10 @@ public class CoinCollector {
 		this.currentCoins = new ArrayList<Coin>();
 	}
 	
+	public List<Coin> getCurrentCoins() {
+		return currentCoins;
+	}
+	
 	private boolean isValidCoin(Coin coin) {
 		return coin.equals(Coin.QUARTER) ||
 				coin.equals(Coin.DIME) ||
