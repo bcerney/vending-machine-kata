@@ -50,5 +50,14 @@ public class ChangeAmountTest {
 		
 		Assert.assertEquals(35, quarterPlusDime.getTotalAmountInCents());
 	}
+	
+	@Test
+	public void givenChangeAmountOfNICEKLPlusCoinAmountOfDIMEReturnsChangeAmountOf15Cents() {
+		ChangeAmount nickelAmount = ChangeAmount.returnChangeAmountOfCoinValue(Coin.NICKEL);
+		ChangeAmount dimeAmount = ChangeAmount.returnChangeAmountOfCoinValue(Coin.DIME);
+		ChangeAmount nickelPlusDime = nickelAmount.plus(dimeAmount);
+		
+		Assert.assertEquals(15, nickelPlusDime.getTotalAmountInCents());
+	}
 
 }
