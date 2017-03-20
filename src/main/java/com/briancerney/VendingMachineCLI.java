@@ -6,18 +6,27 @@ public class VendingMachineCLI {
 	private InsertCoinSlot insertCoinSlot;
 	private Display display;
 	private Scanner input;
+	private Inventory inventory;
 
 	public VendingMachineCLI() {
 		this.insertCoinSlot = new InsertCoinSlot();
 		this.display = new Display();
 		this.input = new Scanner(System.in);
+		this.inventory = new Inventory();
 	}
 
 	public void start() {
+		stockInventory();
 		while (true) {
 			printMenu();
 			inputOption();
 		}
+	}
+	
+	private void stockInventory() {
+		inventory.addProduct(1, new Product("Cola", new ChangeAmount(100), 3));
+		inventory.addProduct(2, new Product("Chips", new ChangeAmount(50), 3));
+		inventory.addProduct(3, new Product("Candy", new ChangeAmount(65), 3));
 	}
 
 	private void printMenu() {
@@ -25,7 +34,8 @@ public class VendingMachineCLI {
 		System.out.println(display.getCurrentDisplay(insertCoinSlot.getCoinCollector()));
 		System.out.println("Please select an option: ");
 		System.out.println("1) Insert Coins");
-		System.out.println("2) Check Coin Return");
+		System.out.println("2) Select Product");
+		System.out.println("3) Check Coin Return");
 	}
 	
 	private void inputOption() {
@@ -33,8 +43,10 @@ public class VendingMachineCLI {
 		if (choice.equals("1")) {
 			insertCoin();
 		} else if (choice.equals("2")) {
+			selectProduct();
+		} else if (choice.equals("3")) {
 			checkCoinReturn();
-		} else {
+		}else {
 			System.out.println("Invalid input, please try again.");
 		}
 	}
@@ -60,6 +72,10 @@ public class VendingMachineCLI {
 			System.out.println("================================");
 		}
 
+	}
+	
+	public void selectProduct() {
+		
 	}
 	
 	public void checkCoinReturn() {

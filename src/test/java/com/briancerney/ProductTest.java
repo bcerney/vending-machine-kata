@@ -24,4 +24,11 @@ public class ProductTest {
 		Assert.assertEquals("$1.00", testProduct.getPriceAsString());
 		Assert.assertEquals(3, testProduct.getQuantity());
 	}
+	
+	@Test
+	public void productToStringWorksCorrectly() {
+		testProduct = new Product("Chips", new ChangeAmount(50), 3);
+		
+		Assert.assertEquals("Chips, Price: $0.50, Quantity: 3", testProduct.toString());
+	}
 }
