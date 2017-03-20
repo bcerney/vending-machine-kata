@@ -14,16 +14,16 @@ public class TransactionTest {
 	}
 	
 	@Test
-	public void givenCoinCollectorContains1QuarterCalculateBalanceReturnsChangeAmountOf25() {
+	public void givenCoinCollectorContains1QuarterCalculateChangeAmountReturnsChangeAmountOf25() {
 		CoinCollector testCollector = new CoinCollector();
 		testCollector.addCoin(Coin.QUARTER);
-		ChangeAmount testAmount = testTransaction.calculateBalance(testCollector);
+		ChangeAmount testAmount = testTransaction.calculateChangeAmount(testCollector);
 		
 		Assert.assertEquals(25, testAmount.getTotalAmountInCents());
 	}
 	
 	@Test
-	public void givenCoinCollectorContains2Quarters2Dimes2NickelsCalculateBalanceReturnsChangeAmountOf80() {
+	public void givenCoinCollectorContains2Quarters2Dimes2NickelsCalculateChangeAmountReturnsChangeAmountOf80() {
 		CoinCollector testCollector = new CoinCollector();
 		testCollector.addCoin(Coin.QUARTER);
 		testCollector.addCoin(Coin.QUARTER);
@@ -32,7 +32,7 @@ public class TransactionTest {
 		testCollector.addCoin(Coin.NICKEL);
 		testCollector.addCoin(Coin.NICKEL);
 
-		ChangeAmount testAmount = testTransaction.calculateBalance(testCollector);
+		ChangeAmount testAmount = testTransaction.calculateChangeAmount(testCollector);
 		
 		Assert.assertEquals(80, testAmount.getTotalAmountInCents());
 	}

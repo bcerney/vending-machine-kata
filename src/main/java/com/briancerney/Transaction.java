@@ -6,7 +6,7 @@ public class Transaction {
 		
 	}
 	
-	public ChangeAmount calculateBalance(CoinCollector currentCoins) {
+	public ChangeAmount calculateChangeAmount(CoinCollector currentCoins) {
 		ChangeAmount runningTotal = ChangeAmount.ZERO_CENTS;
 		
 		for (Coin coin : currentCoins.getCoinsAsList()) {
@@ -14,5 +14,7 @@ public class Transaction {
 		}
 		return runningTotal;
 	}
+	
+	
 	
 }

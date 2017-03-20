@@ -82,12 +82,8 @@ public class VendingMachineCLI {
 		int choice = Integer.parseInt(input.nextLine());
 		if (isValidChoice(choice)) {
 			Product chosenProduct = inventory.getProductBySlotKey(choice);
-			
+			boolean isSuccessfulTransaction = attemptPurchaseOfProduct(chosenProduct);
 		}
-	}
-	
-	boolean isValidChoice(int choice) {
-		return choice >=1 && choice <= 3;
 	}
 	
 	private void displayInventory() {
@@ -95,6 +91,14 @@ public class VendingMachineCLI {
 			Product nextProduct = inventory.getProductBySlotKey(key);
 			System.out.println(key+") "+nextProduct.toString());
 		}
+	}
+	
+	boolean isValidChoice(int choice) {
+		return choice >=1 && choice <= 3;
+	}
+	
+	boolean attemptPurchaseOfProduct(Product chosenProduct) {
+		return false;
 	}
 	
 	private void checkCoinReturn() {

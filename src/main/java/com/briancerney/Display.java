@@ -1,14 +1,14 @@
 package com.briancerney;
 
 public class Display {
-	private Transaction balanceCalculator;
+	private Transaction transaction;
 
 	public Display() {
-		this.balanceCalculator = new Transaction();
+		this.transaction = new Transaction();
 	}
 	
 	private String displayBalance(CoinCollector currentCoins) {
-		return "Current Balance: " + balanceCalculator.calculateBalance(currentCoins).toString();
+		return "Current Balance: " + transaction.calculateChangeAmount(currentCoins).toString();
 	}
 
 	public String getCurrentDisplay(CoinCollector currentCoins) {
