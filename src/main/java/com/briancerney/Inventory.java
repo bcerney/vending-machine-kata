@@ -17,5 +17,9 @@ public class Inventory {
 	public int getNumberOfProducts() {
 		return inventoryMap.size();
 	}
+	
+	public Product getProductBySlotKey(int slotKey) {
+		return inventoryMap.get(slotKey);
+	}
 
 }

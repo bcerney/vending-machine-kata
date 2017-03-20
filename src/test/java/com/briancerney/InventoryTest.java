@@ -28,5 +28,16 @@ public class InventoryTest {
 		
 		Assert.assertEquals(2, testInventory.getNumberOfProducts());
 	}
+	
+	@Test
+	public void givenIAddProductToInventoryGetProductBySlotKeyReturnsCorrectProduct() {
+		Product testProduct = new Product("Cola", new ChangeAmount(100), 3);
+		testInventory.addProduct(1, testProduct);
+		Product testProductReturned = testInventory.getProductBySlotKey(1);
+		
+		Assert.assertEquals(testProduct.getName(), testProductReturned.getName());
+		Assert.assertEquals(testProduct.getPriceAsString(), testProductReturned.getPriceAsString());
+		Assert.assertEquals(testProduct.getQuantity(), testProductReturned.getQuantity());
+	}
 
 }
