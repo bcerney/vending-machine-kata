@@ -83,8 +83,9 @@ public class VendingMachineCLI {
 		
 		int choice = Integer.parseInt(input.nextLine());
 		if (isValidChoice(choice)) {
-			Product chosenProduct = inventory.getProductBySlotKey(choice);
-			boolean isSuccessfulTransaction = attemptPurchaseOfProduct(chosenProduct);
+			boolean isSuccessful = attemptPurchaseOfProduct(choice);
+		} else {
+			System.out.println("Invalid choice, please try again");
 		}
 	}
 	
@@ -99,12 +100,14 @@ public class VendingMachineCLI {
 		return choice >=1 && choice <= 3;
 	}
 	
-	boolean attemptPurchaseOfProduct(Product chosenProduct) {
+	boolean attemptPurchaseOfProduct(int choice) {
+		Product chosenProduct = inventory.getProductBySlotKey(choice);
 		ChangeAmount currentBalance = transaction.calculateChangeAmount(insertCoinSlot.getCoinCollector());
 		ChangeAmount productPrice = chosenProduct.getPrice();
 		
-		if (currentBalance.isGreaterThanOrEqualTo(productPrice)) {
-			
+		if (currentBalance.isGreaterThanOrEqualTo(productPrice) &&
+			chosenProduct.isInStock()) {
+			inventory.dispenseProduct(choice);
 		} else {
 			
 		}

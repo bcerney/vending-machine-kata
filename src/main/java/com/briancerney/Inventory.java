@@ -21,5 +21,7 @@ public class Inventory {
 	public Product getProductBySlotKey(int slotKey) {
 		return inventoryMap.get(slotKey);
 	}
+	
+	
 
 }

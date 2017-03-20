@@ -31,4 +31,11 @@ public class ProductTest {
 		
 		Assert.assertEquals("Chips, Price: $0.50, Quantity: 3", testProduct.toString());
 	}
+	
+	@Test
+	public void givenProductQuantityIs1IsInStockReturnsTrue() {
+		testProduct = new Product("Chips", new ChangeAmount(50), 3);
+		
+		Assert.assertTrue(testProduct.isInStock());
+	}
 }

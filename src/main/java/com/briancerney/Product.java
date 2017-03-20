@@ -15,8 +15,6 @@ public class Product {
 		this.quantity = quantity;
 	}
 
-
-
 	public String getName() {
 		return name;
 	}
@@ -43,6 +41,10 @@ public class Product {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+	
+	public boolean isInStock() {
+		return quantity > 0;
 	}
 	
 	@Override
