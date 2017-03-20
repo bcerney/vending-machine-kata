@@ -4,7 +4,7 @@ public class Product {
 	private String name;
 	private ChangeAmount price;
 	private int quantity;
-	
+
 	public Product() {
 
 	}
@@ -26,7 +26,7 @@ public class Product {
 	public ChangeAmount getPrice() {
 		return price;
 	}
-	
+
 	public String getPriceAsString() {
 		return price.toString();
 	}
@@ -42,21 +42,20 @@ public class Product {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
+
 	public void reduceQuantityByOne() {
-		setQuantity(getQuantity() - 1);
+		if (quantity > 0) {
+			setQuantity(getQuantity() - 1);
+		}
 	}
-	
+
 	public boolean isInStock() {
 		return quantity > 0;
 	}
-	
+
 	@Override
 	public String toString() {
-		return getName()+", Price: "+getPriceAsString()+", Quantity: "+getQuantity();
+		return getName() + ", Price: " + getPriceAsString() + ", Quantity: " + getQuantity();
 	}
-	
-	
-	
 
 }

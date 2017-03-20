@@ -62,5 +62,13 @@ public class ProductTest {
 		Assert.assertEquals(0, testProduct.getQuantity());
 	}
 	
+	@Test
+	public void givenProductQuantityIs0ReduceQuantityByOneDoesNotReduceQuantityToNegativeOne() {
+		testProduct = new Product("Chips", new ChangeAmount(50), 0);
+		testProduct.reduceQuantityByOne();
+		
+		Assert.assertEquals(0, testProduct.getQuantity());
+	}
+	
 	
 }
