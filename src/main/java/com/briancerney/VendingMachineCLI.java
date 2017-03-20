@@ -81,6 +81,7 @@ public class VendingMachineCLI {
 		
 		int choice = Integer.parseInt(input.nextLine());
 		if (isValidChoice(choice)) {
+			Product chosenProduct = inventory.getProductBySlotKey(choice);
 			
 		}
 	}

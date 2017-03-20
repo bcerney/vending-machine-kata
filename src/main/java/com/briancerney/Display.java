@@ -1,10 +1,10 @@
 package com.briancerney;
 
 public class Display {
-	private BalanceCalculator balanceCalculator;
+	private Transaction balanceCalculator;
 
 	public Display() {
-		this.balanceCalculator = new BalanceCalculator();
+		this.balanceCalculator = new Transaction();
 	}
 	
 	private String displayBalance(CoinCollector currentCoins) {

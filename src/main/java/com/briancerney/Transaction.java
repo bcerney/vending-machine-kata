@@ -1,8 +1,8 @@
 package com.briancerney;
 
-public class BalanceCalculator {
+public class Transaction {
 	
-	public BalanceCalculator() {
+	public Transaction() {
 		
 	}
 	

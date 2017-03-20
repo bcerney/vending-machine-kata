@@ -4,20 +4,20 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class BalanceCalculatorTest {
+public class TransactionTest {
 	
-	BalanceCalculator testCalculator;
+	Transaction testTransaction;
 	
 	@Before
 	public void setUp() {
-		testCalculator = new BalanceCalculator();
+		testTransaction = new Transaction();
 	}
 	
 	@Test
 	public void givenCoinCollectorContains1QuarterCalculateBalanceReturnsChangeAmountOf25() {
 		CoinCollector testCollector = new CoinCollector();
 		testCollector.addCoin(Coin.QUARTER);
-		ChangeAmount testAmount = testCalculator.calculateBalance(testCollector);
+		ChangeAmount testAmount = testTransaction.calculateBalance(testCollector);
 		
 		Assert.assertEquals(25, testAmount.getTotalAmountInCents());
 	}
@@ -32,7 +32,7 @@ public class BalanceCalculatorTest {
 		testCollector.addCoin(Coin.NICKEL);
 		testCollector.addCoin(Coin.NICKEL);
 
-		ChangeAmount testAmount = testCalculator.calculateBalance(testCollector);
+		ChangeAmount testAmount = testTransaction.calculateBalance(testCollector);
 		
 		Assert.assertEquals(80, testAmount.getTotalAmountInCents());
 	}
