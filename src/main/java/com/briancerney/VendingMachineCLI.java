@@ -17,6 +17,7 @@ public class VendingMachineCLI {
 
 	public void start() {
 		stockInventory();
+		
 		while (true) {
 			printMenu();
 			inputOption();
@@ -51,7 +52,7 @@ public class VendingMachineCLI {
 		}
 	}
 	
-	public void insertCoin() {
+	private void insertCoin() {
 		System.out.println("Select coin to insert: ");
 		System.out.println("1) Quarter");
 		System.out.println("2) Dime");
@@ -74,11 +75,28 @@ public class VendingMachineCLI {
 
 	}
 	
-	public void selectProduct() {
+	private void selectProduct() {
+		System.out.println("Please select a product:");
+		displayInventory();
 		
+		int choice = Integer.parseInt(input.nextLine());
+		if (isValidChoice(choice)) {
+			
+		}
 	}
 	
-	public void checkCoinReturn() {
+	boolean isValidChoice(int choice) {
+		return choice >=1 && choice <= 3;
+	}
+	
+	private void displayInventory() {
+		for (int key = 1; key <= inventory.getNumberOfProducts(); key++) {
+			Product nextProduct = inventory.getProductBySlotKey(key);
+			System.out.println(key+") "+nextProduct.toString());
+		}
+	}
+	
+	private void checkCoinReturn() {
 		
 	}
 }
