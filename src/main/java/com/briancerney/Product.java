@@ -9,6 +9,14 @@ public class Product {
 
 	}
 
+	public Product(String name, ChangeAmount price, int quantity) {
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+	}
+
+
+
 	public String getName() {
 		return name;
 	}
