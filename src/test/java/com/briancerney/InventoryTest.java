@@ -47,5 +47,6 @@ public class InventoryTest {
 		
 		Assert.assertEquals(2, testInventory.getProductBySlotKey(1).getQuantity());
 	}
+	
 
 }

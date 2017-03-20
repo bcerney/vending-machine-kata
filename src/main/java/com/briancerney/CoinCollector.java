@@ -21,4 +21,8 @@ public class CoinCollector implements CoinCollection {
 	public int getNumberOfCoins() {
 		return currentCoins.size();
 	}
+	
+	public void clearCoinCollector() {
+		currentCoins.clear();
+	}
 }

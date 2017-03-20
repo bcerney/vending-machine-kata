@@ -83,7 +83,7 @@ public class VendingMachineCLI {
 		
 		int choice = Integer.parseInt(input.nextLine());
 		if (isValidChoice(choice)) {
-			boolean isSuccessful = attemptPurchaseOfProduct(choice);
+			attemptPurchaseOfProduct(choice);
 		} else {
 			System.out.println("Invalid choice, please try again");
 		}
@@ -100,21 +100,24 @@ public class VendingMachineCLI {
 		return choice >=1 && choice <= 3;
 	}
 	
-	boolean attemptPurchaseOfProduct(int choice) {
-		Product chosenProduct = inventory.getProductBySlotKey(choice);
+	void attemptPurchaseOfProduct(int choice) {
+		Product selectedProduct = inventory.getProductBySlotKey(choice);
 		ChangeAmount currentBalance = transaction.calculateChangeAmount(insertCoinSlot.getCoinCollector());
-		ChangeAmount productPrice = chosenProduct.getPrice();
+		ChangeAmount productPrice = selectedProduct.getPrice();
 		
 		if (currentBalance.isGreaterThanOrEqualTo(productPrice) &&
-			chosenProduct.isInStock()) {
+			selectedProduct.isInStock()) {
 			inventory.dispenseProduct(choice);
-		} else {
-			
+			transaction.updateBalanceAfterPurchase(insertCoinSlot);
+		} else if (!currentBalance.isGreaterThanOrEqualTo(productPrice)) {
+			System.out.println("Selected product price is "+productPrice.toString()+", please insert the correct amount!");
+		} else if (!selectedProduct.isInStock()) {
+			System.out.println("Sorry, selected product is out of stock!");
 		}
-		return false;
 	}
 	
 	private void checkCoinReturn() {
-		
+		System.out.println(insertCoinSlot.getCoinReturn().toString());
+		System.out.println("=======================================");
 	}
 }

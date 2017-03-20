@@ -15,6 +15,10 @@ public class Transaction {
 		return runningTotal;
 	}
 	
+	public void updateBalanceAfterPurchase(InsertCoinSlot coinSlot) {
+		coinSlot.getCoinCollector().clearCoinCollector();
+	}
+	
 	
 	
 }
