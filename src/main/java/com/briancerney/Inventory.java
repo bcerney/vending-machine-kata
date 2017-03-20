@@ -22,6 +22,11 @@ public class Inventory {
 		return inventoryMap.get(slotKey);
 	}
 	
+	public void dispenseProduct(int slotKey) {
+		Product chosenProduct = getProductBySlotKey(slotKey);
+		chosenProduct.reduceQuantityByOne();
+	}
+	
 	
 
 }

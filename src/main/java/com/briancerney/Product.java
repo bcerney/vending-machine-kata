@@ -43,6 +43,10 @@ public class Product {
 		this.quantity = quantity;
 	}
 	
+	public void reduceQuantityByOne() {
+		setQuantity(getQuantity() - 1);
+	}
+	
 	public boolean isInStock() {
 		return quantity > 0;
 	}

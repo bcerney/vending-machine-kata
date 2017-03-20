@@ -45,4 +45,12 @@ public class ProductTest {
 		
 		Assert.assertFalse(testProduct.isInStock());
 	}
+	
+	@Test
+	public void givenProductQuantityIs3ReduceQuantityByOneReducesQuantityTo2() {
+		testProduct = new Product("Chips", new ChangeAmount(50), 3);
+		testProduct.reduceQuantityByOne();
+		
+		Assert.assertEquals(2, testProduct.getQuantity());
+	}
 }
