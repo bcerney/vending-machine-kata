@@ -38,4 +38,11 @@ public class ProductTest {
 		
 		Assert.assertTrue(testProduct.isInStock());
 	}
+	
+	@Test
+	public void givenProductQuantityIs0IsInStockReturnsFalse() {
+		testProduct = new Product("Chips", new ChangeAmount(50), 0);
+		
+		Assert.assertFalse(testProduct.isInStock());
+	}
 }
