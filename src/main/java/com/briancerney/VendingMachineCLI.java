@@ -51,12 +51,13 @@ public class VendingMachineCLI {
 			insertCoinSlot.insertCoin(Coin.QUARTER);
 		} else if (choice.equals("2")) {
 			insertCoinSlot.insertCoin(Coin.DIME);
-		} else if (choice.equals("2")) {
+		} else if (choice.equals("3")) {
 			insertCoinSlot.insertCoin(Coin.NICKEL);
-		} else if (choice.equals("2")) {
+		} else if (choice.equals("4")) {
 			insertCoinSlot.insertCoin(Coin.PENNY);
 		} else {
 			System.out.println("Invalid input, please try again.");
+			System.out.println("================================");
 		}
 
 	}

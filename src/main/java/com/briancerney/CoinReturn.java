@@ -21,5 +21,13 @@ public class CoinReturn implements CoinCollection {
 	public int getNumberOfCoins() {
 		return returnedCoins.size();
 	}
+	
+	@Override
+	public String toString() {
+		if (returnedCoins.isEmpty()) {
+			return "The coin return is empty!";
+		}
+		return "";
+	}
 
 }
