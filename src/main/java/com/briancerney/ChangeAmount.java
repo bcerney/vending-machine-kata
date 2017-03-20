@@ -50,5 +50,14 @@ public class ChangeAmount {
 		return "$"+getDollars()+"."+String.format("%02d", getCents());
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj != null && obj instanceof ChangeAmount) {
+			return this.totalAmountInCents == ((ChangeAmount) obj).totalAmountInCents;
+		} else {
+			return false;
+		}
+	}
+	
 
 }
