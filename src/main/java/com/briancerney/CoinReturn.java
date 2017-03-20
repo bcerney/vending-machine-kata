@@ -21,20 +21,23 @@ public class CoinReturn implements CoinCollection {
 	public int getNumberOfCoins() {
 		return returnedCoins.size();
 	}
-
-	public String getNumberOfPenniesString() {
-		if (!returnedCoins.contains(Coin.PENNY)) {
-			return "0 pennies";
-		}
-		
+	
+	private int getNumberOfPennies() {
 		int numberOfPennies = 0;
+		
 		for (Coin coin : returnedCoins) {
 			if (coin.equals(Coin.PENNY)) {
 				numberOfPennies++;
 			}
 		}
-		
-		if (numberOfPennies == 1) {
+		return numberOfPennies;
+	}
+
+	private String getNumberOfPenniesString() {
+		int numberOfPennies = getNumberOfPennies();
+		if (numberOfPennies == 0) {
+			return "0 pennies";
+		} else if (numberOfPennies == 1) {
 			return "1 penny";
 		} else {
 			return numberOfPennies+" pennies";
