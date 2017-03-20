@@ -18,5 +18,11 @@ public class CoinReturnTest {
 	public void givenCoinReturnIsEmptyToStringReturnsCorrectString() {
 		Assert.assertEquals("The coin return is empty!", testReturn.toString());
 	}
+	
+	@Test
+	public void givenCoinReturnContains1PennyToStringReturnsCorrectString() {
+		testReturn.addCoin(Coin.PENNY);
+		Assert.assertEquals("Coin return contains: 0 quarters, 0 dimes, 0 nickels, 1 penny", testReturn.toString());
+	}
 
 }
