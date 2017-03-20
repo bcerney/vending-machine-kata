@@ -79,7 +79,7 @@ public class ChangeAmountTest {
 	}
 	
 	@Test
-	public void givenChangeAmount100CentsIsGreaterThanOrEqualTo5ChangeAmount50CentsReturnsTrue() {
+	public void givenChangeAmount100CentsIsGreaterThanOrEqualToChangeAmount50CentsReturnsTrue() {
 		testAmount = new ChangeAmount(100);
 		ChangeAmount comparedAmount = new ChangeAmount(50);
 		
@@ -87,11 +87,19 @@ public class ChangeAmountTest {
 	}
 	
 	@Test
-	public void givenChangeAmount100CentsIsGreaterThanOrEqualTo5ChangeAmount100CentsReturnsTrue() {
+	public void givenChangeAmount100CentsIsGreaterThanOrEqualToChangeAmount100CentsReturnsTrue() {
 		testAmount = new ChangeAmount(100);
 		ChangeAmount comparedAmount = new ChangeAmount(100);
 		
 		Assert.assertTrue(testAmount.isGreaterThanOrEqualTo(comparedAmount));
+	}
+	
+	@Test
+	public void givenChangeAmount100CentsIsGreaterThanOrEqualToChangeAmount150CentsReturnsFalse() {
+		testAmount = new ChangeAmount(100);
+		ChangeAmount comparedAmount = new ChangeAmount(150);
+		
+		Assert.assertFalse(testAmount.isGreaterThanOrEqualTo(comparedAmount));
 	}
 
 }
