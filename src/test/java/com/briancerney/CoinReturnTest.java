@@ -24,5 +24,13 @@ public class CoinReturnTest {
 		testReturn.addCoin(Coin.PENNY);
 		Assert.assertEquals("Coin return contains: 0 quarters, 0 dimes, 0 nickels, 1 penny", testReturn.toString());
 	}
+	
+	@Test
+	public void givenCoinReturnContains2PenniesToStringReturnsCorrectString() {
+		testReturn.addCoin(Coin.PENNY);
+		testReturn.addCoin(Coin.PENNY);
+
+		Assert.assertEquals("Coin return contains: 0 quarters, 0 dimes, 0 nickels, 2 pennies", testReturn.toString());
+	}
 
 }
