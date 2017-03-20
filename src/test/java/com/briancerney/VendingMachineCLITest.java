@@ -17,5 +17,10 @@ public class VendingMachineCLITest {
 	public void givenIsValidChoicePassed1ItReturnsTrue() {
 		Assert.assertTrue(testCLI.isValidChoice(1));
 	}
+	
+	@Test
+	public void givenIsValidChoicePassed3ItReturnsTrue() {
+		Assert.assertTrue(testCLI.isValidChoice(3));
+	}
 
 }
