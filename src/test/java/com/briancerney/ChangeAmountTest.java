@@ -85,5 +85,13 @@ public class ChangeAmountTest {
 		
 		Assert.assertTrue(testAmount.isGreaterThanOrEqualTo(comparedAmount));
 	}
+	
+	@Test
+	public void givenChangeAmount100CentsIsGreaterThanOrEqualTo5ChangeAmount100CentsReturnsTrue() {
+		testAmount = new ChangeAmount(100);
+		ChangeAmount comparedAmount = new ChangeAmount(100);
+		
+		Assert.assertTrue(testAmount.isGreaterThanOrEqualTo(comparedAmount));
+	}
 
 }
