@@ -7,12 +7,14 @@ public class VendingMachineCLI {
 	private Display display;
 	private Scanner input;
 	private Inventory inventory;
+	private Transaction transaction;
 
 	public VendingMachineCLI() {
 		this.insertCoinSlot = new InsertCoinSlot();
 		this.display = new Display();
 		this.input = new Scanner(System.in);
 		this.inventory = new Inventory();
+		this.transaction = new Transaction();
 	}
 
 	public void start() {
@@ -98,6 +100,14 @@ public class VendingMachineCLI {
 	}
 	
 	boolean attemptPurchaseOfProduct(Product chosenProduct) {
+		ChangeAmount currentBalance = transaction.calculateChangeAmount(insertCoinSlot.getCoinCollector());
+		ChangeAmount productPrice = chosenProduct.getPrice();
+		
+		if (currentBalance.isGreaterThanOrEqualTo(productPrice)) {
+			
+		} else {
+			
+		}
 		return false;
 	}
 	

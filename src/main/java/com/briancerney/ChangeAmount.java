@@ -34,6 +34,10 @@ public class ChangeAmount {
 		return new ChangeAmount(this.getTotalAmountInCents() + amountToAdd.getTotalAmountInCents());
 	}
 	
+	public boolean isGreaterThanOrEqualTo(ChangeAmount comparedAmount) {
+		return this.totalAmountInCents >= comparedAmount.getTotalAmountInCents();
+	}
+	
 	public static ChangeAmount returnChangeAmountOfCoinValue(Coin coin) {
 		if (coin.equals(Coin.QUARTER)) {
 			return ChangeAmount.QUARTER;
