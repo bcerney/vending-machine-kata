@@ -7,5 +7,4 @@ public interface CoinCollection {
 	List<Coin> getCoinsAsList();
 	void addCoin(Coin coinToAdd);
 	int getNumberOfCoins();
-
 }

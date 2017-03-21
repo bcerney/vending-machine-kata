@@ -34,6 +34,10 @@ public class Coin {
 		this.diameterInMm = diameterInMm;
 	}
 	
+	public ChangeAmount getCoinChangeAmount() {
+		return ChangeAmount.returnChangeAmountOfCoinValue(this);
+	}
+	
 	
 	
 }

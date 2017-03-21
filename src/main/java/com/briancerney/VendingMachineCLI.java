@@ -107,8 +107,9 @@ public class VendingMachineCLI {
 		
 		if (currentBalance.isGreaterThanOrEqualTo(productPrice) &&
 			selectedProduct.isInStock()) {
+			boolean isSuccessful = transaction.attemptPurchase(productPrice, insertCoinSlot);
 			inventory.dispenseProduct(choice);
-			transaction.updateBalanceAfterPurchase(insertCoinSlot);
+			// transaction.updateBalanceAfterPurchase(productPrice, insertCoinSlot);
 		} else if (!currentBalance.isGreaterThanOrEqualTo(productPrice)) {
 			System.out.println("Selected product price is "+productPrice.toString()+", please insert the correct amount!");
 		} else if (!selectedProduct.isInStock()) {
