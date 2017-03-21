@@ -16,7 +16,7 @@ public class Transaction {
 	}
 	
 	public void updateBalanceAfterPurchase(InsertCoinSlot coinSlot) {
-		coinSlot.getCoinCollector().clearCoinCollector();
+		coinSlot.getCurrentBalance().clearCoinCollector();
 	}
 	
 	

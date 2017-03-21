@@ -3,16 +3,22 @@ package com.briancerney;
 import java.util.List;
 
 public class InsertCoinSlot {
-	private CoinCollector coinCollector;
+	private CoinCollector currentBalance;
+	private CoinCollector availableChange;
 	private CoinReturn coinReturn;
 	
 	public InsertCoinSlot() {
-		this.coinCollector = new CoinCollector();
+		this.currentBalance = new CoinCollector();
+		this.availableChange = new CoinCollector();
 		this.coinReturn = new CoinReturn();
 	}
 
-	public CoinCollector getCoinCollector() {
-		return coinCollector;
+	public CoinCollector getCurrentBalance() {
+		return currentBalance;
+	}
+	
+	public CoinCollector getAvailableChange() {
+		return availableChange;
 	}
 
 	public CoinReturn getCoinReturn() {
@@ -20,7 +26,11 @@ public class InsertCoinSlot {
 	}
 
 	public List<Coin> getCurrentBalanceCoins() {
-		return coinCollector.getCoinsAsList();
+		return currentBalance.getCoinsAsList();
+	}
+	
+	public List<Coin> getAvailableChangeCoins() {
+		return availableChange.getCoinsAsList();
 	}
 	
 	public List<Coin> getReturnedCoins() {
@@ -28,7 +38,11 @@ public class InsertCoinSlot {
 	}
 	
 	public int getNumberOfCurrentBalanceCoins() {
-		return coinCollector.getNumberOfCoins();
+		return currentBalance.getNumberOfCoins();
+	}
+	
+	public int getNumberOfAvailableChangeCoins() {
+		return currentBalance.getNumberOfCoins();
 	}
 	
 	public int getNumberOfReturnedCoins() {
@@ -43,7 +57,7 @@ public class InsertCoinSlot {
 	
 	public void insertCoin(Coin coinToAdd) {
 		if (isValidCoin(coinToAdd)) {
-			coinCollector.addCoin(coinToAdd);
+			currentBalance.addCoin(coinToAdd);
 		} else {
 			coinReturn.addCoin(coinToAdd);
 		}

@@ -34,7 +34,7 @@ public class VendingMachineCLI {
 
 	private void printMenu() {
 		System.out.println("Vending Machine");
-		System.out.println(display.getCurrentDisplay(insertCoinSlot.getCoinCollector()));
+		System.out.println(display.getCurrentDisplay(insertCoinSlot.getCurrentBalance()));
 		System.out.println("Please select an option: ");
 		System.out.println("1) Insert Coins");
 		System.out.println("2) Select Product");
@@ -102,7 +102,7 @@ public class VendingMachineCLI {
 	
 	void attemptPurchaseOfProduct(int choice) {
 		Product selectedProduct = inventory.getProductBySlotKey(choice);
-		ChangeAmount currentBalance = transaction.calculateChangeAmount(insertCoinSlot.getCoinCollector());
+		ChangeAmount currentBalance = transaction.calculateChangeAmount(insertCoinSlot.getCurrentBalance());
 		ChangeAmount productPrice = selectedProduct.getPrice();
 		
 		if (currentBalance.isGreaterThanOrEqualTo(productPrice) &&
