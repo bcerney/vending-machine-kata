@@ -39,5 +39,13 @@ public class CoinTest {
 		Assert.assertEquals(2, testCoin.getWeightInGrams());
 		Assert.assertEquals(18, testCoin.getDiameterInMm());
 	}
+	
+	@Test
+	public void givenCoinQUARTERGetCoinChangeAmountGetTotalAmountInCentsReturns25() {
+		testCoin = Coin.QUARTER;
+		ChangeAmount testAmount = testCoin.getCoinChangeAmount();
+		
+		Assert.assertEquals(25, testAmount.getTotalAmountInCents());
+	}
 
 }
