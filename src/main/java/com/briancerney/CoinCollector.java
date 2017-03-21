@@ -1,6 +1,8 @@
 package com.briancerney;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class CoinCollector implements CoinCollection {
@@ -9,9 +11,13 @@ public class CoinCollector implements CoinCollection {
 	public CoinCollector() {
 		this.currentCoins = new ArrayList<Coin>();
 	}
-	
+
 	public List<Coin> getCoinsAsList() {
 		return currentCoins;
+	}
+
+	public void sortCoinsByHighestValue() {
+		Collections.sort(currentCoins);
 	}
 
 	public void addCoin(Coin coinToAdd) {
@@ -21,7 +27,7 @@ public class CoinCollector implements CoinCollection {
 	public int getNumberOfCoins() {
 		return currentCoins.size();
 	}
-	
+
 	public void clearCoinCollector() {
 		currentCoins.clear();
 	}

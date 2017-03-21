@@ -1,6 +1,6 @@
 package com.briancerney;
 
-public class Coin {
+public class Coin implements Comparable<Coin> {
 	public static final Coin QUARTER = new Coin(6,24);
 	public static final Coin DIME = new Coin(2,18);
 	public static final Coin NICKEL = new Coin(5,21);
@@ -38,6 +38,11 @@ public class Coin {
 		return ChangeAmount.returnChangeAmountOfCoinValue(this);
 	}
 	
-	
+	@Override
+	public int compareTo(Coin compareCoin) {
+		int compareValue = ((Coin) compareCoin).getCoinChangeAmount().getTotalAmountInCents();
+		
+		return compareValue - this.getCoinChangeAmount().getTotalAmountInCents() ;
+	}
 	
 }

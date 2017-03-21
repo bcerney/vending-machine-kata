@@ -1,5 +1,7 @@
 package com.briancerney;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,6 +39,20 @@ public class CoinCollectorTest {
 		testCollector.clearCoinCollector();
 		
 		Assert.assertEquals(0, testCollector.getNumberOfCoins());
+	}
+	
+	@Test
+	public void givenAddCoinNICKELAndDIMEAndQUARTERSortCoinsByHighestValueCorrectlyReorders() {
+		
+		testCollector.addCoin(Coin.NICKEL);
+		testCollector.addCoin(Coin.DIME);		
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.sortCoinsByHighestValue();
+		List<Coin> testCollectorList = testCollector.getCoinsAsList();
+		
+		Assert.assertEquals(Coin.QUARTER, testCollectorList.get(0));
+		Assert.assertEquals(Coin.DIME, testCollectorList.get(1));
+		Assert.assertEquals(Coin.NICKEL, testCollectorList.get(2));
 	}
 
 }

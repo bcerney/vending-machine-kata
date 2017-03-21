@@ -21,13 +21,9 @@ public class Transaction {
 	
 	private void transferPurchaseCoinsToAvailableChange(ChangeAmount productPrice, InsertCoinSlot coinSlot) {
 		int currentTotalCents = productPrice.getTotalAmountInCents();
-		List<Coin> currentBalance = coinSlot.getCurrentBalance();
+		List<Coin> currentBalance = coinSlot.getCurrentBalance().getCoinsAsList();
+		// left off here, hoping to sort by ChangeAmount, iterate through, check if exact change can be made
 		
-		Collections.sort(currentBalance, new Comparator<ChangeAmount>() {
-		    public int compare(ChangeAmount coin1, ChangeAmount coin2) {
-		        return ChangeAmount.returnChangeAmountOfCoinValue(coin1).compareTo(ChangeAmount.returnChangeAmountOfCoinValue(coin2));
-		    }
-		});
 		
 		
 		while (currentTotalCents > 0) {
