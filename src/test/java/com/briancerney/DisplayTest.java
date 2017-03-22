@@ -59,5 +59,12 @@ public class DisplayTest {
 		
 		Assert.assertEquals("Current Balance: $1.30", testDisplay.getDisplay());
 	}
+	
+	@Test
+	public void givenSetDisplayCodeTo2GetDisplayReturnsPRICEString() {
+		testDisplay.setDisplayCode(2);
+		
+		Assert.assertEquals("PRICE", testDisplay.getDisplay());
+	}
 
 }

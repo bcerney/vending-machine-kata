@@ -22,8 +22,9 @@ public class Display {
 	public String getDisplay() {
 		if (displayCode == 1) {
 			return getBalanceDisplay();
+		} else if (displayCode == 2) {
+			return "PRICE";
 		}
-		
 		return "";
 	}
 
