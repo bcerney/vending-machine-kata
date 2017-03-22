@@ -11,10 +11,6 @@ public class Display {
 		this.displayStatus = "displayBalance";
 	}
 	
-	private String displayBalance(CoinCollector currentCoins) {
-		return "Current Balance: " + transaction.calculateChangeAmount(currentCoins).toString();
-	}
-	
 	public void setDisplayStatus(String displayStatus) {
 		this.displayStatus = displayStatus;
 	}
@@ -22,17 +18,9 @@ public class Display {
 	public String getDisplay() {
 		if (displayStatus == "displayBalance") {
 			return getBalanceDisplay();
-		} else if (displayStatus == "insufficientBalance") {
-			return "PRICE";
-		} else if (displayStatus == "productSoldOut") {
-			return "SOLD OUT";
-		} else if (displayStatus == "needExactChange") {
-			return "EXACT CHANGE ONLY";
-		} else if (displayStatus == "productSold") {
-			return "THANK YOU";
 		} else {
-			return "UNKNOWN DISPLAY STATUS";
-		}
+			return displayStatus;
+		} 
 	}
 
 	public String getBalanceDisplay() {
@@ -41,6 +29,10 @@ public class Display {
 			return "INSERT COIN";
 		}
 		return displayBalance(currentCoins);
+	}
+	
+	private String displayBalance(CoinCollector currentCoins) {
+		return "Current Balance: " + transaction.calculateChangeAmount(currentCoins).toString();
 	}
 
 }

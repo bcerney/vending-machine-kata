@@ -27,9 +27,9 @@ public class VendingMachineCLI {
 	}
 	
 	private void stockInventory() {
-		inventory.addProduct(1, new Product("Cola", new ChangeAmount(100), 3));
-		inventory.addProduct(2, new Product("Chips", new ChangeAmount(50), 3));
-		inventory.addProduct(3, new Product("Candy", new ChangeAmount(65), 3));
+		inventory.addProduct(1, new Product("Cola", new ChangeAmount(100), 1));
+		inventory.addProduct(2, new Product("Chips", new ChangeAmount(50), 1));
+		inventory.addProduct(3, new Product("Candy", new ChangeAmount(65), 1));
 	}
 
 	private void printMenu() {
@@ -78,7 +78,8 @@ public class VendingMachineCLI {
 			System.out.println("Invalid input, please try again.");
 			System.out.println("================================");
 		}
-
+		
+		display.setDisplayStatus("displayBalance");
 	}
 	
 	private void selectProduct() {
@@ -101,7 +102,7 @@ public class VendingMachineCLI {
 	}
 	
 	boolean isValidChoice(int choice) {
-		return choice >=1 && choice <= 3;
+		return choice >=1 && choice <= 4;
 	}
 	
 	void attemptPurchaseOfProduct(int choice) {
@@ -112,21 +113,27 @@ public class VendingMachineCLI {
 		if (currentBalance.isGreaterThanOrEqualTo(productPrice) &&
 			selectedProduct.isInStock()) {
 			boolean isSuccessful = transaction.attemptPurchase(productPrice, insertCoinSlot);
-			inventory.dispenseProduct(choice);
-			// transaction.updateBalanceAfterPurchase(productPrice, insertCoinSlot);
+			if (isSuccessful) {
+				inventory.dispenseProduct(choice);
+				display.setDisplayStatus("THANK YOU");
+			} else {
+				display.setDisplayStatus("EXACT CHANGE ONLY");
+			}
 		} else if (!currentBalance.isGreaterThanOrEqualTo(productPrice)) {
-			System.out.println("Selected product price is "+productPrice.toString()+", please insert the correct amount!");
+			display.setDisplayStatus("PRICE");
 		} else if (!selectedProduct.isInStock()) {
-			System.out.println("Sorry, selected product is out of stock!");
+			display.setDisplayStatus("SOLD OUT");
 		}
 	}
 	
 	private void pressReturnCoins() {
 		insertCoinSlot.returnCoins();
+		display.setDisplayStatus("displayBalance");
 	}
 	
 	private void checkCoinReturn() {
 		System.out.println(insertCoinSlot.getCoinReturn().toString());
 		System.out.println("=======================================");
+		display.setDisplayStatus("displayBalance");
 	}
 }

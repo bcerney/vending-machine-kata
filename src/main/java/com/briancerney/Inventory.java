@@ -25,7 +25,6 @@ public class Inventory {
 	public void dispenseProduct(int slotKey) {
 		Product chosenProduct = getProductBySlotKey(slotKey);
 		chosenProduct.reduceQuantityByOne();
-		System.out.println("Enjoy your "+chosenProduct.getName()+"!");
 	}
 	
 	
