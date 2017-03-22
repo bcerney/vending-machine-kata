@@ -30,5 +30,16 @@ public class InsertCoinSlotTest {
 		Assert.assertEquals(3, testInsert.getNumberOfCurrentBalanceCoins());
 		Assert.assertEquals(1, testInsert.getNumberOfReturnedCoins());
 	}
+	
+	@Test
+	public void givenInsertCoinPassedQuarterDimeNickelWhenReturnCoinsCalledCurrentBalanceSizeIs0ReturnedCoinsSizeIs3() {
+		testInsert.insertCoin(Coin.QUARTER);
+		testInsert.insertCoin(Coin.DIME);
+		testInsert.insertCoin(Coin.NICKEL);
+		testInsert.returnCoins();
+		
+		Assert.assertEquals(0, testInsert.getNumberOfCurrentBalanceCoins());
+		Assert.assertEquals(3, testInsert.getNumberOfReturnedCoins());
+	}
 
 }

@@ -4,12 +4,12 @@ import java.util.List;
 
 public class InsertCoinSlot {
 	private CoinCollector currentBalance;
-	private CoinCollector availableChange;
+//	private CoinCollector availableChange;
 	private CoinReturn coinReturn;
 	
 	public InsertCoinSlot() {
 		this.currentBalance = new CoinCollector();
-		this.availableChange = new CoinCollector();
+		//this.availableChange = new CoinCollector();
 		this.coinReturn = new CoinReturn();
 	}
 
@@ -17,9 +17,9 @@ public class InsertCoinSlot {
 		return currentBalance;
 	}
 	
-	public CoinCollector getAvailableChange() {
-		return availableChange;
-	}
+//	public CoinCollector getAvailableChange() {
+//		return availableChange;
+//	}
 
 	public CoinReturn getCoinReturn() {
 		return coinReturn;
@@ -29,9 +29,9 @@ public class InsertCoinSlot {
 		return currentBalance.getCoinsAsList();
 	}
 	
-	public List<Coin> getAvailableChangeCoins() {
-		return availableChange.getCoinsAsList();
-	}
+//	public List<Coin> getAvailableChangeCoins() {
+//		return availableChange.getCoinsAsList();
+//	}
 	
 	public List<Coin> getReturnedCoins() {
 		return coinReturn.getCoinsAsList();
@@ -63,6 +63,13 @@ public class InsertCoinSlot {
 		}
 	}
 	
+	public void returnCoins() {
+		List<Coin> balance = currentBalance.getCoinsAsList();
+		for (int i = 0; i < balance.size(); i++) {
+			coinReturn.addCoin(balance.get(i));
+		}
+		currentBalance.clearCoinCollector();
+	}
 	
 
 }
