@@ -83,5 +83,24 @@ public class TransactionTest {
 		
 		Assert.assertTrue(testTransaction.canMakeChange(85, testList));
 	}
+	
+	@Test
+	public void givenPriceInCents75AndSortedCoins4QuartersWhenMakeChangeCurrentBalanceSize0ReturnedCoinsSize1() {
+		InsertCoinSlot testCoinSlot = new InsertCoinSlot();
+		CoinCollector testCollector = testCoinSlot.getCurrentBalance();
+		
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.addCoin(Coin.QUARTER);
+		
+		testCollector.sortCoinsByHighestValue();
+		List<Coin> testList = testCollector.getCoinsAsList();
+		
+		testTransaction.makeChange(75, testList, testCoinSlot);
+		
+		Assert.assertEquals(0, testCollector.getNumberOfCoins());
+		Assert.assertEquals(1, testCoinSlot.getNumberOfReturnedCoins());
+	}
 
 }
