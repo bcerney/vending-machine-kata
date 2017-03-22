@@ -62,37 +62,30 @@ public class DisplayTest {
 	
 	@Test
 	public void givenSetDisplayCodePassedInsufficientFundsGetDisplayReturnsPRICEString() {
-		testDisplay.setDisplayStatus("insufficientBalance");
+		testDisplay.setDisplayStatus("PRICE");
 		
 		Assert.assertEquals("PRICE", testDisplay.getDisplay());
 	}
 	
 	@Test
 	public void givenSetDisplayCodePassedProductSoldOutGetDisplayReturnsSOLDOUTString() {
-		testDisplay.setDisplayStatus("productSoldOut");
+		testDisplay.setDisplayStatus("SOLD OUT");
 		
 		Assert.assertEquals("SOLD OUT", testDisplay.getDisplay());
 	}
 	
 	@Test
 	public void givenSetDisplayCodePassedNeedExactChangeGetDisplayReturnsEXACTCHANGEONLYString() {
-		testDisplay.setDisplayStatus("needExactChange");
+		testDisplay.setDisplayStatus("EXACT CHANGE ONLY");
 		
 		Assert.assertEquals("EXACT CHANGE ONLY", testDisplay.getDisplay());
 	}
 	
 	@Test
 	public void givenSetDisplayCodePassedProductSoldGetDisplayReturnsTHANKYOUString() {
-		testDisplay.setDisplayStatus("productSold");
+		testDisplay.setDisplayStatus("THANK YOU");
 		
 		Assert.assertEquals("THANK YOU", testDisplay.getDisplay());
-	}
-	
-	@Test
-	public void givenSetDisplayCodePassedUnknownStatusGetDisplayReturnsUNKNOWNDISPLAYSTATUSString() {
-		testDisplay.setDisplayStatus("unknownStatus");
-		
-		Assert.assertEquals("UNKNOWN DISPLAY STATUS", testDisplay.getDisplay());
 	}
 
 }

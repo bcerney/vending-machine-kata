@@ -21,6 +21,16 @@ public class CoinReturn implements CoinCollection {
 	public int getNumberOfCoins() {
 		return returnedCoins.size();
 	}
+
+	private String getNumberOfPenniesString() {
+		int numberOfPennies = getNumberOfPennies();
+		
+		if (numberOfPennies == 1) {
+			return "1 penny";
+		} else {
+			return numberOfPennies+" pennies";
+		}
+	}
 	
 	private int getNumberOfPennies() {
 		int numberOfPennies = 0;
@@ -32,16 +42,26 @@ public class CoinReturn implements CoinCollection {
 		}
 		return numberOfPennies;
 	}
-
-	private String getNumberOfPenniesString() {
-		int numberOfPennies = getNumberOfPennies();
-		if (numberOfPennies == 0) {
-			return "0 pennies";
-		} else if (numberOfPennies == 1) {
-			return "1 penny";
+	
+	private String getNumberOfNickelsString() {
+		int numberOfNickels = getNumberOfNickels();
+		
+		if (numberOfNickels == 1) {
+			return "1 nickel";
 		} else {
-			return numberOfPennies+" pennies";
+			return numberOfNickels+" nickels";
 		}
+	}
+	
+	private int getNumberOfNickels() {
+		int numberOfNickels = 0;
+		
+		for (Coin coin : returnedCoins) {
+			if (coin.equals(Coin.NICKEL)) {
+				numberOfNickels++;
+			}
+		}
+		return numberOfNickels;
 	}
 
 
@@ -51,8 +71,9 @@ public class CoinReturn implements CoinCollection {
 			return "The coin return is empty!";
 		}
 		String pennyCount = getNumberOfPenniesString();
+		String nickelCount = getNumberOfNickelsString();
 		
-		return "Coin return contains: 0 quarters, 0 dimes, 0 nickels, "+pennyCount;
+		return "Coin return contains: 0 quarters, 0 dimes, "+nickelCount+", "+pennyCount;
 	}
 
 }
