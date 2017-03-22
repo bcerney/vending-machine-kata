@@ -10,11 +10,11 @@ public class VendingMachineCLI {
 	private Transaction transaction;
 
 	public VendingMachineCLI() {
-		this.insertCoinSlot = new InsertCoinSlot();
-		this.display = new Display();
 		this.input = new Scanner(System.in);
 		this.inventory = new Inventory();
+		this.insertCoinSlot = new InsertCoinSlot();
 		this.transaction = new Transaction();
+		this.display = new Display(insertCoinSlot, transaction);
 	}
 
 	public void start() {
@@ -34,11 +34,13 @@ public class VendingMachineCLI {
 
 	private void printMenu() {
 		System.out.println("Vending Machine");
-		System.out.println(display.getCurrentDisplay(insertCoinSlot.getCurrentBalance()));
+		System.out.println(display.getDisplay());
 		System.out.println("Please select an option: ");
 		System.out.println("1) Insert Coins");
 		System.out.println("2) Select Product");
-		System.out.println("3) Check Coin Return");
+		System.out.println("3) Return Coins");
+		System.out.println("4) Check Coin Return");
+
 	}
 	
 	private void inputOption() {
@@ -48,8 +50,10 @@ public class VendingMachineCLI {
 		} else if (choice.equals("2")) {
 			selectProduct();
 		} else if (choice.equals("3")) {
+			pressReturnCoins();
+		} else if (choice.equals("4")) {
 			checkCoinReturn();
-		}else {
+		} else {
 			System.out.println("Invalid input, please try again.");
 		}
 	}
@@ -115,6 +119,10 @@ public class VendingMachineCLI {
 		} else if (!selectedProduct.isInStock()) {
 			System.out.println("Sorry, selected product is out of stock!");
 		}
+	}
+	
+	private void pressReturnCoins() {
+		insertCoinSlot.returnCoins();
 	}
 	
 	private void checkCoinReturn() {
