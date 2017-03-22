@@ -62,7 +62,7 @@ public class DisplayTest {
 	
 	@Test
 	public void givenSetDisplayCodeTo2GetDisplayReturnsPRICEString() {
-		testDisplay.setDisplayCode(2);
+		testDisplay.setDisplayStatus("insufficientBalance");
 		
 		Assert.assertEquals("PRICE", testDisplay.getDisplay());
 	}

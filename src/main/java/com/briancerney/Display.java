@@ -3,27 +3,29 @@ package com.briancerney;
 public class Display {
 	private InsertCoinSlot coinSlot;
 	private Transaction transaction;
-	private int displayCode;
+	private String displayStatus;
 
 	public Display(InsertCoinSlot coinSlot, Transaction transaction) {
 		this.coinSlot = coinSlot;
 		this.transaction = transaction;
-		this.displayCode = 1;
+		this.displayStatus = "showBalance";
 	}
 	
 	private String displayBalance(CoinCollector currentCoins) {
 		return "Current Balance: " + transaction.calculateChangeAmount(currentCoins).toString();
 	}
 	
-	public void setDisplayCode(int displayCode) {
-		this.displayCode = displayCode;
+	public void setDisplayStatus(String displayCode) {
+		this.displayStatus = displayCode;
 	}
 	
 	public String getDisplay() {
-		if (displayCode == 1) {
+		if (displayStatus == "showBalance") {
 			return getBalanceDisplay();
-		} else if (displayCode == 2) {
+		} else if (displayStatus == "insufficientBalance") {
 			return "PRICE";
+		} else if (displayStatus == "productSoldOut") {
+			return "SOLD OUT";
 		}
 		return "";
 	}
