@@ -87,5 +87,12 @@ public class DisplayTest {
 		
 		Assert.assertEquals("THANK YOU", testDisplay.getDisplay());
 	}
+	
+	@Test
+	public void givenSetDisplayCodePassedUnknownStatusGetDisplayReturnsUNKNOWNDISPLAYSTATUSString() {
+		testDisplay.setDisplayStatus("unknownStatus");
+		
+		Assert.assertEquals("UNKNOWN DISPLAY STATUS", testDisplay.getDisplay());
+	}
 
 }
