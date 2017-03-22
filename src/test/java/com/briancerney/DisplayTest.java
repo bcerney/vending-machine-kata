@@ -80,5 +80,12 @@ public class DisplayTest {
 		
 		Assert.assertEquals("EXACT CHANGE ONLY", testDisplay.getDisplay());
 	}
+	
+	@Test
+	public void givenSetDisplayCodePassedProductSoldGetDisplayReturnsTHANKYOUString() {
+		testDisplay.setDisplayStatus("productSold");
+		
+		Assert.assertEquals("THANK YOU", testDisplay.getDisplay());
+	}
 
 }
