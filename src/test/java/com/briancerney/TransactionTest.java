@@ -1,5 +1,7 @@
 package com.briancerney;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,6 +37,19 @@ public class TransactionTest {
 		ChangeAmount testAmount = testTransaction.calculateChangeAmount(testCollector);
 		
 		Assert.assertEquals(80, testAmount.getTotalAmountInCents());
+	}
+	
+	@Test
+	public void givenPriceInCents100AndSortedCoins4QuartersCanMakeChangeReturnTrue() {
+		CoinCollector testCollector = new CoinCollector();
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.sortCoinsByHighestValue();
+		List<Coin> testList = testCollector.getCoinsAsList();
+		
+		Assert.assertTrue(testTransaction.canMakeChange(100, testList));
 	}
 
 }

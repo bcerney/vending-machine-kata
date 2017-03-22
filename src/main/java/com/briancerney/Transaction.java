@@ -19,25 +19,27 @@ public class Transaction {
 		return runningTotal;
 	}
 	
-	private void transferPurchaseCoinsToAvailableChange(ChangeAmount productPrice, InsertCoinSlot coinSlot) {
-		int currentTotalCents = productPrice.getTotalAmountInCents();
-		List<Coin> currentBalance = coinSlot.getCurrentBalance().getCoinsAsList();
-		// left off here, hoping to sort by ChangeAmount, iterate through, check if exact change can be made
-		
-		
-		
-		while (currentTotalCents > 0) {
-			if (currentTotalCents > 25) {
-
-				
+	boolean canMakeChange(int priceInCents, List<Coin> sortedCoins) {
+		for (int i = 0; i < sortedCoins.size(); i++) {
+			int nextCoinCents = sortedCoins.get(i).getCoinChangeAmount().getTotalAmountInCents();
+			if (priceInCents - nextCoinCents >= 0) {
+				priceInCents -= nextCoinCents;
+				if (priceInCents == 0) {
+					return true;
+				}
 			}
-			
 		}
+		return false;
 	}
 	
 	public boolean attemptPurchase(ChangeAmount productPrice, InsertCoinSlot coinSlot) {
-		transferPurchaseCoinsToAvailableChange(productPrice, coinSlot);
-		coinSlot.getCurrentBalance().clearCoinCollector();
+		int priceInCents = productPrice.getTotalAmountInCents();
+		coinSlot.getCurrentBalance().sortCoinsByHighestValue();
+		List<Coin> balanceCoinsSorted = coinSlot.getCurrentBalanceCoins();
+		
+		if (canMakeChange(priceInCents, balanceCoinsSorted)) {
+			
+		}
 		
 		return false;
 	}
