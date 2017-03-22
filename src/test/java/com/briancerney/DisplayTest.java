@@ -19,7 +19,7 @@ public class DisplayTest {
 	}
 	
 	@Test
-	public void givenDisplayCode1AndCurrentCoins0GetDisplayReturnsINSERTCOIN() {
+	public void givenDisplayCodeEqualsDisplayBalanceAndCurrentCoins0GetDisplayReturnsINSERTCOIN() {
 		
 		
 		Assert.assertEquals("INSERT COIN", testDisplay.getDisplay());
@@ -46,7 +46,7 @@ public class DisplayTest {
 	}
 	
 	@Test
-	public void givenGetCurrentDisplayPassedCoinCollectorWith4Quarters2Dimes2NickelsReturnsCorrectBalanceAsString() {
+	public void givenDisplayDisplayPassedCoinCollectorWith4Quarters2Dimes2NickelsReturnsCorrectBalanceAsString() {
 		CoinCollector testCollector = testSlot.getCurrentBalance();
 		testCollector.addCoin(Coin.QUARTER);
 		testCollector.addCoin(Coin.QUARTER);
@@ -61,10 +61,17 @@ public class DisplayTest {
 	}
 	
 	@Test
-	public void givenSetDisplayCodeTo2GetDisplayReturnsPRICEString() {
+	public void givenSetDisplayCodePassedInsufficientFundsGetDisplayReturnsPRICEString() {
 		testDisplay.setDisplayStatus("insufficientBalance");
 		
 		Assert.assertEquals("PRICE", testDisplay.getDisplay());
+	}
+	
+	@Test
+	public void givenSetDisplayCodePassedProductSoldOutGetDisplayReturnsSOLDOUTString() {
+		testDisplay.setDisplayStatus("productSoldOut");
+		
+		Assert.assertEquals("SOLD OUT", testDisplay.getDisplay());
 	}
 
 }

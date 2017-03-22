@@ -8,26 +8,31 @@ public class Display {
 	public Display(InsertCoinSlot coinSlot, Transaction transaction) {
 		this.coinSlot = coinSlot;
 		this.transaction = transaction;
-		this.displayStatus = "showBalance";
+		this.displayStatus = "displayBalance";
 	}
 	
 	private String displayBalance(CoinCollector currentCoins) {
 		return "Current Balance: " + transaction.calculateChangeAmount(currentCoins).toString();
 	}
 	
-	public void setDisplayStatus(String displayCode) {
-		this.displayStatus = displayCode;
+	public void setDisplayStatus(String displayStatus) {
+		this.displayStatus = displayStatus;
 	}
 	
 	public String getDisplay() {
-		if (displayStatus == "showBalance") {
+		if (displayStatus == "displayBalance") {
 			return getBalanceDisplay();
 		} else if (displayStatus == "insufficientBalance") {
 			return "PRICE";
 		} else if (displayStatus == "productSoldOut") {
 			return "SOLD OUT";
+		} else if (displayStatus == "needExactChange") {
+			return "EXACT CHANGE ONLY";
+		} else if (displayStatus == "productSold") {
+			return "THANK YOU";
+		} else {
+			return "UNKNOWN DISPLAY STATUS";
 		}
-		return "";
 	}
 
 	public String getBalanceDisplay() {
