@@ -51,5 +51,17 @@ public class TransactionTest {
 		
 		Assert.assertTrue(testTransaction.canMakeChange(100, testList));
 	}
+	
+	@Test
+	public void givenPriceInCents70AndSortedCoins3QuartersCanMakeChangeReturnFalse() {
+		CoinCollector testCollector = new CoinCollector();
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.addCoin(Coin.QUARTER);
+		testCollector.sortCoinsByHighestValue();
+		List<Coin> testList = testCollector.getCoinsAsList();
+		
+		Assert.assertFalse(testTransaction.canMakeChange(70, testList));
+	}
 
 }
