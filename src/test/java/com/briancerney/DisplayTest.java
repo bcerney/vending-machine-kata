@@ -24,14 +24,13 @@ public class DisplayTest {
 		
 		Assert.assertEquals("INSERT COIN", testDisplay.getDisplay());
 	}
-//	
-//	@Test
-//	public void givenGetCurrentDisplayPassedCoinCollectorWith1QuarterReturnsCorrectBalanceAsString() {
-//		CoinCollector testCollector = new CoinCollector();
-//		testCollector.addCoin(Coin.QUARTER);
-//		
-//		Assert.assertEquals("Current Balance: $0.25", testDisplay.getCurrentDisplay(testCollector));
-//	}
+	
+	@Test
+	public void givenCurrentBalanceAdd1QuarterGetDisplayReturnsCorrectBalanceAsString() {
+		testSlot.getCurrentBalance().addCoin(Coin.QUARTER);
+		
+		Assert.assertEquals("Current Balance: $0.25", testDisplay.getDisplay());
+	}
 //	
 //	@Test
 //	public void givenGetCurrentDisplayPassedCoinCollectorWith2Quarters2Dimes2NickelsReturnsCorrectBalanceAsString() {
