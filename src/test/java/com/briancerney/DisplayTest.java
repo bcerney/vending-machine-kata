@@ -73,5 +73,12 @@ public class DisplayTest {
 		
 		Assert.assertEquals("SOLD OUT", testDisplay.getDisplay());
 	}
+	
+	@Test
+	public void givenSetDisplayCodePassedNeedExactChangeGetDisplayReturnsEXACTCHANGEONLYString() {
+		testDisplay.setDisplayStatus("needExactChange");
+		
+		Assert.assertEquals("EXACT CHANGE ONLY", testDisplay.getDisplay());
+	}
 
 }
