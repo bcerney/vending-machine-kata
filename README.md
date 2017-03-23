@@ -2,7 +2,7 @@
 
 This is my attempt at the Vending Machine Kata, as defined [here.](https://github.com/PillarTechnology/kata-vending-machine) I am submitting this kata as part of my application for Pillar's Technology Apprenticeship Program.
 
-### Set-Up ###
+## Set-Up ##
 
 **- Clone the repository:**
 ```
