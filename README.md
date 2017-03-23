@@ -14,7 +14,7 @@ I built this project using Maven. For information on downloading and installing 
 
 **- Navigate to repository folder**
 
-To run the basic CLI I wrote to display functionality:
+To run the CLI:
 ```
 mvn exec:java
 ```
