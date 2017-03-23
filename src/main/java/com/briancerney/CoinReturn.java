@@ -63,6 +63,27 @@ public class CoinReturn implements CoinCollection {
 		}
 		return numberOfNickels;
 	}
+	
+	private String getNumberOfDimesString() {
+		int numberOfDimes = getNumberOfDimes();
+		
+		if (numberOfDimes == 1) {
+			return "1 dimes";
+		} else {
+			return numberOfDimes+" dimes";
+		}
+	}
+	
+	private int getNumberOfDimes() {
+		int numberOfDimes = 0;
+		
+		for (Coin coin : returnedCoins) {
+			if (coin.equals(Coin.DIME)) {
+				numberOfDimes++;
+			}
+		}
+		return numberOfDimes;
+	}
 
 
 	@Override
@@ -72,8 +93,9 @@ public class CoinReturn implements CoinCollection {
 		}
 		String pennyCount = getNumberOfPenniesString();
 		String nickelCount = getNumberOfNickelsString();
+		String dimeCount = getNumberOfDimesString();
 		
-		return "Coin return contains: 0 quarters, 0 dimes, "+nickelCount+", "+pennyCount;
+		return "Coin return contains: 0 quarters, "+dimeCount+", "+nickelCount+", "+pennyCount;
 	}
 
 }
