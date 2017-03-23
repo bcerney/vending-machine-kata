@@ -32,7 +32,7 @@ public class Display {
 	}
 	
 	private String displayBalance(CoinCollector currentCoins) {
-		return "Current Balance: " + transaction.calculateChangeAmount(currentCoins).toString();
+		return transaction.calculateChangeAmount(currentCoins).toString();
 	}
 
 }

@@ -29,7 +29,7 @@ public class DisplayTest {
 	public void givenCurrentBalanceAdd1QuarterGetDisplayReturnsCorrectBalanceAsString() {
 		testSlot.getCurrentBalance().addCoin(Coin.QUARTER);
 		
-		Assert.assertEquals("Current Balance: $0.25", testDisplay.getDisplay());
+		Assert.assertEquals("$0.25", testDisplay.getDisplay());
 	}
 	
 	@Test
@@ -42,7 +42,7 @@ public class DisplayTest {
 		testCollector.addCoin(Coin.NICKEL);
 		testCollector.addCoin(Coin.NICKEL);
 		
-		Assert.assertEquals("Current Balance: $0.80", testDisplay.getDisplay());
+		Assert.assertEquals("$0.80", testDisplay.getDisplay());
 	}
 	
 	@Test
@@ -57,7 +57,7 @@ public class DisplayTest {
 		testCollector.addCoin(Coin.NICKEL);
 		testCollector.addCoin(Coin.NICKEL);
 		
-		Assert.assertEquals("Current Balance: $1.30", testDisplay.getDisplay());
+		Assert.assertEquals("$1.30", testDisplay.getDisplay());
 	}
 	
 	@Test
