@@ -53,7 +53,7 @@ public class VendingMachineCLI {
 			pressReturnCoins();
 		} else if (choice.equals("4")) {
 			checkCoinReturn();
-		} else if (choice.equals("5")) {
+		} else if (choice.equals("Q")) {
 			System.exit(1);;
 		} else {
 			System.out.println("Invalid input, please try again.");
