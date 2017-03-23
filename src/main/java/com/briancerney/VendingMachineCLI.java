@@ -40,7 +40,7 @@ public class VendingMachineCLI {
 		System.out.println("2) Select Product");
 		System.out.println("3) Return Coins");
 		System.out.println("4) Check Coin Return");
-
+		System.out.println("Q) Quit");
 	}
 	
 	private void inputOption() {
@@ -53,6 +53,8 @@ public class VendingMachineCLI {
 			pressReturnCoins();
 		} else if (choice.equals("4")) {
 			checkCoinReturn();
+		} else if (choice.equals("5")) {
+			System.exit(1);;
 		} else {
 			System.out.println("Invalid input, please try again.");
 		}
@@ -102,7 +104,7 @@ public class VendingMachineCLI {
 	}
 	
 	boolean isValidChoice(int choice) {
-		return choice >=1 && choice <= 4;
+		return choice >=1 && choice <= 3;
 	}
 	
 	void attemptPurchaseOfProduct(int choice) {
